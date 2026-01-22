@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ka">
 <head>
   <meta charset="UTF-8">
   <title>Tbilisi Computer Handyman</title>
@@ -97,6 +97,7 @@
       font-weight: 600;
       cursor: pointer;
       font-size: 14px;
+      text-decoration: none;
     }
     .btn-secondary {
       background: transparent;
@@ -106,6 +107,7 @@
       border-radius: 999px;
       font-size: 13px;
       cursor: pointer;
+      text-decoration: none;
     }
     .hero-note {
       font-size: 13px;
@@ -210,8 +212,8 @@
       <h1 id="heroTitle"></h1>
       <p class="subtitle" id="heroSubtitle"></p>
       <div class="cta-row">
-        <a id="heroMainCta" class="btn-primary" href="tel:+995000000000"></a>
-        <a id="heroSecondaryCta" class="btn-secondary" href="mailto:yourmail@example.com"></a>
+        <a id="heroMainCta" class="btn-primary"></a>
+        <a id="heroSecondaryCta" class="btn-secondary"></a>
       </div>
       <p class="hero-note" id="heroNote"></p>
     </div>
@@ -252,8 +254,8 @@
     <h2 id="finalCtaTitle"></h2>
     <p id="finalCtaText"></p>
     <div class="cta-row">
-      <a id="finalCtaBtn" class="btn-primary" href="tel:+995000000000"></a>
-      <a id="finalCtaSecondary" class="btn-secondary" href="mailto:yourmail@example.com"></a>
+      <a id="finalCtaBtn" class="btn-primary"></a>
+      <a id="finalCtaSecondary" class="btn-secondary"></a>
     </div>
   </section>
 
@@ -263,273 +265,281 @@
 </main>
 
 <script>
-  // CHANGE THIS TO YOUR REAL CONTACTS
-  const phoneHref = "tel:+995000000000";
-  const mailHref  = "mailto:yourmail@example.com";
+  const phoneHref = "tel:+995555593673";
+  const mailHref  = "mailto:tbilisicomputerhandyman@gmail.com";
 
   const translations = {
-    ka: {
-      badge: "ონ-საიტი კომპიუტერული ჰენდი მენი • თბილისი",
-      heroTitle: "ნელად მომუშავე ლეპტოპი, ვირუსები თუ Wi‑Fi პრობლემები? მოვიდე და ადგილზე გაგისწორებ.",
-      heroSubtitle: "Tbilisi Computer Handyman – მოვდივარ შენს სახლში ან ოფისში, ვასწორებ პრობლემას და ყველაფერს მოვლენრივ ენაზე გიხსნი, ზედმეტი ტექნიკური ჟარგონის გარეშე.",
-      heroMainCta: "დარეკე ახლავე",
-      heroSecondaryCta: "მისწერე პრობლემის მოკლე აღწერა",
-      heroNote: "მოვემსახურები თბილისის მასშტაბით. პროგრამული პრობლემების ნაწილი შეიძლება დისტანციურადაც მოგვარდეს.",
-      heroCardTitle: "რა ტიპის პრობლემებს ვასწორებ ხშირად",
+    en: {
+      badge: "Same-day computer repair in Tbilisi",
+      heroTitle: "Computer repair & laptop repair in Tbilisi — on-site technician today",
+      heroSubtitle: "Fix slow laptops, remove viruses, repair Windows, set up PCs and solve Wi‑Fi problems — English-speaking tech support at your home, no waiting days.",
+      heroMainCta: "Book on-site technician now",
+      heroSecondaryCta: "See pricing and services",
+      heroNote: "30‑minute diagnostic visit included. Same‑day repairs in most cases. English speaker available.",
+      heroCardTitle: "What you get with the visit",
       heroCardList: [
-        "ნელად ჩართვა, გაქრომილი Windows და ზედმეტი პროგრამები",
-        "ვირუსები, უცნაური პოპაპები და რეკლამები",
-        "Wi‑Fi გათიშვები და სუსტი სიგნალი სახლში ან ოფისში",
-        "ახალი კომპიუტერის პირველადი დაყენება და საბაზო დატრეინინგება"
+        "Same‑day on‑site repair at your home or office",
+        "English‑speaking, experienced technician",
+        "Transparent pricing with no surprise fees",
+        "Warranty on all parts and labor",
+        "Same‑day Windows reinstall available"
       ],
-      servicesTitle: "სერვისები, რაშიც დაგეხმარები",
-      servicesIntro: "ვმუშაობ როგორც სახლში, ისე მცირე ოფისებში – ტექნიკურ მხარეს მე ვაგვარებ, შენ კი მშვიდად აგრძელებ მუშაობას.",
+      servicesTitle: "Computer and laptop repair services in Tbilisi",
+      servicesIntro: "Whether your laptop is running slow, infected with a virus, having Wi‑Fi issues or needs a complete Windows setup, we come to you. No drop‑offs, no waiting rooms – professional repairs at your desk with fast turnaround.",
       servicesPills: [
-        "ლეპტოპებისა და დესქთოპების დიაგნოსტიკა",
-        "Windows ინსტალაცია და გასუფთავება",
-        "ვირუსები და მავნე პროგრამები",
-        "ინტერნეტი და Wi‑Fi",
-        "ონლაინ და ადგილზე მხარდაჭერა"
+        "Laptop repair Tbilisi",
+        "Computer repair near me",
+        "Virus removal",
+        "Windows repair & setup",
+        "Wi‑Fi & internet fix",
+        "Emergency computer repair",
+        "PC troubleshooting"
       ],
       servicesBlocks: [
         {
-          title: "ლეპტოპი და დესქთოპი",
+          title: "Slow laptop and PC performance",
           items: [
-            "ნელა მუშაობს, ჭედავს ან აღარ ირთვება",
-            "ხურდება, ხმაურობს, ქულერი წიკწიკებს",
-            "დისკის სივრცე შეჭამულია და აღარ იცით, რა წაშალოთ"
+            "Diagnose why your computer is running slow",
+            "Remove malware and unnecessary startup programs",
+            "Upgrade RAM or SSD to boost speed"
+          ]
+        },
+        {
+          title: "Virus removal and Windows issues",
+          items: [
+            "Fast removal of viruses, malware and spyware",
+            "Repair corrupted Windows or reinstall from scratch",
+            "Back up and protect your data before reinstall"
+          ]
+        },
+        {
+          title: "Wi‑Fi and internet setup",
+          items: [
+            "Install and configure home or office Wi‑Fi networks",
+            "Fix disconnecting internet and weak Wi‑Fi signal",
+            "Set up and troubleshoot routers on all providers"
+          ]
+        },
+        {
+          title: "New PC setup and configuration",
+          items: [
+            "Complete setup of new laptops and desktop PCs",
+            "Transfer files and settings from your old device",
+            "Install and configure essential software and accounts"
+          ]
+        }
+      ],
+      aboutTitle: "Your English‑speaking computer repair specialist in Tbilisi",
+      aboutText: "Serving Tbilisi’s expat and local community with honest, reliable computer repair, focusing on on‑site laptop and PC service so you do not have to visit a shop. If your Windows will not start, your laptop is crawling or you need emergency tech support, you get same‑day help with clear communication, transparent pricing and guaranteed work quality.",
+      processTitle: "How on‑site computer repair works",
+      processSteps: [
+        "Call or message and briefly describe your issue",
+        "Technician arrives within hours for a 30‑minute diagnostic",
+        "You receive a clear quote and we start immediately if you approve",
+        "Most repairs are finished the same day, with warranty on all work"
+      ],
+      faqTitle: "Computer repair questions answered",
+      faq: [
+        {
+          q: "Why is my laptop so slow?",
+          a: "Most slow laptops are overloaded with background programs, malware or an old hard drive. Instead of guessing, your technician can find the exact cause in 30 minutes and apply the right fix."
+        },
+        {
+          q: "How do I safely remove a virus from my PC?",
+          a: "Viruses should be removed with professional tools to avoid data loss. Your system is scanned, cleaned and updated, then secured so the same problem is less likely to happen again."
+        },
+        {
+          q: "My Wi‑Fi keeps disconnecting – what should I do?",
+          a: "Unstable Wi‑Fi can be caused by router settings, interference or outdated drivers. During the visit your technician tests the whole setup and configures your network for stable, fast internet."
+        }
+      ],
+      finalCtaTitle: "Ready for faster, trouble‑free computing?",
+      finalCtaText: "Stop fighting with slow laptops, viruses and broken Wi‑Fi. Get an on‑site technician in Tbilisi today for fast diagnostics, same‑day repairs and English‑speaking support.",
+      finalCtaBtn: "Schedule your repair today",
+      finalCtaSecondary: "Call us directly",
+      footerLine: "Fast computer repair in Tbilisi • On‑site technician • Same‑day service • Virus removal • Windows repair • Wi‑Fi setup"
+    },
+
+    ka: {
+      badge: "ადგილზე კომპიუტერის შეკეთება • თბილისი",
+      heroTitle: "კომპიუტერისა და ლეპტოპის შეკეთება თბილისში – ტექნიკოსი მოვა შენთან",
+      heroSubtitle: "ლეპტოპი ნელა მუშაობს, Windows არ ეშვება, ვირუსები ან Wi‑Fi პრობლემები გაქვს? მოვალ სახლში თუ ოფისში, გავაკეთებ დიაგნოსტიკას და იმავე დღეს მოვაგვარებთ ყველაფერს.",
+      heroMainCta: "გამოიძახე ტექნიკოსი დღეს",
+      heroSecondaryCta: "მომწერე შენი პრობლემა",
+      heroNote: "თბილისის მასშტაბით გამოძახება. ხშირ შემთხვევაში პრობლემა იმავე ვიზიტზე fიქსირდება. მხოლოდ პროგრამულ საკითხებზე შესაძლებელია დისტანციური დახმარებაც.",
+      heroCardTitle: "რა ტიპის პრობლემებს ვასწორებ ყველაზე ხშირად",
+      heroCardList: [
+        "ძალიან ნელა მომუშავე ან გაჭედილი ლეპტოპი და დესქთოპი",
+        "ვირუსები, უცნაური პოპ‑აპები და არასასურველი პროგრამები",
+        "Wi‑Fi ითიშება, სიგნალი სუსტია ან საერთოდ არ იჭერს",
+        "Windows-ის გადაყენება, გაწმენდა და საჭირო პროგრამების დაყენება",
+        "ახალი კომპიუტერის პირველადი დაყენება და საბაზისო კონსულტაცია"
+      ],
+      servicesTitle: "სერვისები, რაშიც გეხმარები თბილისში",
+      servicesIntro: "არ არის საჭირო კომპიუტერის ტარება სერვისცენტრში. მოვდივარ შენთან, ადგილზე ვაკეთებ დიაგნოსტიკას და ვაგვარებ პრობლემას მაქსიმალურად სწრაფად – რომ შენმა ყოველდღიურმა საქმემ არ დაყოვნოს.",
+      servicesPills: [
+        "კომპიუტერის შეკეთება თბილისში",
+        "ლეპტოპის რემონტი",
+        "Windows გადაყენება",
+        "ვირუსის წაშლა",
+        "Wi‑Fi და ინტერნეტი",
+        "ონლაინ მხარდაჭერა",
+        "ადგილზე დიაგნოსტიკა"
+      ],
+      servicesBlocks: [
+        {
+          title: "ნელა მუშაობის და დაკიდების გამოსწორება",
+          items: [
+            "სისტემის დიაგნოსტიკა – ვნახულობ რა აფერხებს კომპიუტერს",
+            "ზედმეტი პროგრამებისა და მალვერის მოცილება, ავტოსტარტის დალაგება",
+            "დისკისა და ოპერატიული მეხსიერების შემოწმება და საჭიროებისას განახლება"
           ]
         },
         {
           title: "Windows და პროგრამები",
           items: [
-            "სუფთა Windows-ის ჩაყენება და დრაივერების დაყენება",
-            "ძველი, გამოუსადეგარი პროგრამების მოცილება",
-            "საჭირო პროგრამების დაყენება (ბრაუზერები, ოფისი, მესიინჯერები და ა.შ.)"
+            "Windows 10/11‑ის სუფთა დაყენება ან აღდგენა დაზიანების შემდეგ",
+            "დრაივერების, ოფისის და ყოველდღიური პროგრამების დაყენება",
+            "ძველი და ზედმეტი პროგრამების წაშლა, სისტემის გაწმენდა"
           ]
         },
         {
           title: "ვირუსები და უსაფრთხოება",
           items: [
-            "ვირუსებისა და მავნე პროგრამების მოშორება",
-            "ბრაუზერში უცნაური საწყისი გვერდების გაწმენდა",
-            "საფოსტო და სხვა ანგარიშების საბაზო უსაფრთხოების დალაგება"
+            "ვირუსებისა და მავნე პროგრამების სრული სკანირება და მოცილება",
+            "ბრაუზერების გაწმენდა არასასურველი რეკლამებისა და საწყისი გვერდებისგან",
+            "ანტივირუსისა და საბაზისო უსაფრთხოების პარამეტრების დაყენება"
           ]
         },
         {
-          title: "Wi‑Fi და ქსელი",
+          title: "Wi‑Fi და ქსელი სახლში ან ოფისში",
           items: [
-            "მთელ ბინაში/ოფისში Wi‑Fi-ს დაფარვის დალაგება",
-            "რუტერის გადაწყობა, პაროლის და სახელის შეცვლა",
-            "პრობლემების დიაგნოსტიკა, როცა ინტერნეტი ხშირად ითიშება"
+            "რუტერისა და Wi‑Fi ქსელის სწორად დაყენება და პაროლის შეცვლა",
+            "სუსტი სიგნალისა და ხშირი გათიშვების დიაგნოსტიკა და გამოსწორება",
+            "ბინასა და მცირე ოფისში მოწყობილობების დაკავშირება ერთ ქსელზე"
           ]
         }
       ],
-      aboutTitle: "ვინ დგას მომსახურების უკან",
-      aboutText: "მე ვარ დამოუკიდებელი IT ჰენდი მენი თბილისში – ვეხმარები ადამიანებს, რომ კომპიუტერმა და ინტერნეტმა საქმე არ დაუბრკოლოთ. ვმუშაობ მარტივად: ვუსმენ, ვხსნი ადამიანურ ენაზე და წინასწარ გეუბნები, რა შეიძლება გაკეთდეს და რა დაჯდება.",
-      processTitle: "როგორ მუშაობს ეს ყველაფერი",
+      aboutTitle: "ვინ არის Tbilisi Computer Handyman",
+      aboutText: "დამოუკიდებელი IT ჰენდი მენი ვარ თბილისში. ვმუშაობ როგორც კერძო მომხმარებლებთან, ისე პატარა ბიზნესებთან, რომ კომპიუტერმა და ინტერნეტმა საქმე არ შეგინელოს. ყველაფერს აგიხსნი ჩვეულებრივ ენაზე, წინასწარ გეტყვი რა შეიძლება გაკეთდეს და დაახლოებით რა დაჯდება.",
+      processTitle: "როგორ მუშაობს მომსახურება",
       processSteps: [
-        "მომწერე ან დამირეკე და მოკლედ მომიყევი, რა პრობლემა გაქვს.",
-        "გეტყვი, სავარაუდოდ რა არის მიზეზი და რა შეიძლება დაჯდეს გამოსწორება.",
-        "ვერთრანზდებით დროს, მოვდივარ შენთან (ან დისტანციურად უერთდები) და ვასწორებ პრობლემას.",
-        "თბილისის ფარგლებში მოსვლა შეთანხმებული გრაფიკით, მაქსიმალურად მოქნილი საათებით."
+        "მომწერე ან დამირეკე და მოკლედ მომიყევი, რა პრობლემა გაქვს",
+        "შევთანხმდებით მოსვლის დროს და ადგილზე გავაკეთებ დიაგნოსტიკას",
+        "გეტყვი ფასის დიაპაზონს და მხოლოდ შენს თანხმობაზე დავიწყებ შეკეთებას",
+        "უმეტეს შემთხვევაში პრობლემა იმავე დღეს fიქსირდება, მიღებულ შედეგზე მიიღებ მოკლე ინსტრუქციებსაც"
       ],
       faqTitle: "ხშირად დასმული კითხვები",
       faq: [
         {
-          q: "მოდის თუ არა ადგილზე, სახლში / ოფისში?",
-          a: "დიახ, ვმუშაობ საქალაქო რეჟიმში – სახლში თუ ოფისში გესტუმრები. თუ პრობლემა მხოლოდ პროგრამულია, შეიძლება დისტანციურადაც გადაწყდეს."
+          q: "ტექნიკოსი მოდის სახლში თუ ოფისშიც?",
+          a: "დიახ, ვმუშაობ ადგილზე მისვლით მთელ თბილისში. თუ პრობლემა მხოლოდ პროგრამულია, ზოგ შემთხვევაში შეგვიძლია დისტანციურადაც მოვაგვაროთ."
         },
         {
-          q: "რამდენი ჯდება მომსახურება?",
-          a: "ფასი დამოკიდებულია პრობლემაზე, მაგრამ ყოველთვის წინასწარ გაიგებ დიაპაზონს, სანამ რამეს დავიწყებ. მოულოდნელი გადასახადები არ იქნება."
+          q: "რამდენი ჯდება კომპიუტერის შეკეთება?",
+          a: "ფასი დამოკიდებულია პრობლემაზე, მაგრამ ყოველთვის წინასწარ გეუბნები დიაგნოზსა და სავარაუდო ღირებულებას, სანამ რამეს შევეხები – მოულოდნელი ხარჯები არ იქნება."
         },
         {
           q: "რა მოწყობილობებზე მუშაობ?",
-          a: "ლეპტოპები და დესქთოპები (ძირითადად Windows), სახლის და მცირე ოფისის Wi‑Fi/ქსელი."
+          a: "ძირითადად ვმუშაობ Windows‑ის ლეპტოპებსა და დესქთოპებზე, ასევე სახლისა და მცირე ოფისის Wi‑Fi/ინტერნეტ ქსელზე."
         }
       ],
-      finalCtaTitle: "გჭირდება დახმარება დღეს?",
-      finalCtaText: "თუ კომპიუტერი ან Wi‑Fi ნერვებს გიშლის, ნუ გადადებ – მოკლედ მომწერე რა ხდება, და გეტყვი, შეგვიძლია მაშინვე გავასწოროთ თუ სხვა გზა ჯობია.",
-      finalCtaBtn: "დარეკე ახლავე",
-      finalCtaSecondary: "მისწერე პრობლემის მოკლე აღწერა",
-      footerLine: "Tbilisi Computer Handyman • კომპიუტერული ჰენდი მენი თბილისში"
+      finalCtaTitle: "გინდა, რომ კომპიუტერმა დღესვე იმუშაოს ნორმალურად?",
+      finalCtaText: "თუ კომპიუტერი ნერვებს გიშლის, გაიჭედა Windows ან Wi‑Fi არ მუშაობს, ნუ გადადებ. მომწერე მოკლე აღწერა და გეტყვი, როგორ შეგვიძლია დღესვე მოვაგვაროთ პრობლემა ადგილზე.",
+      finalCtaBtn: "გამოიძახე ტექნიკოსი",
+      finalCtaSecondary: "მომწერე მესენჯერში",
+      footerLine: "Tbilisi Computer Handyman • კომპიუტერისა და ლეპტოპის ადგილზე შეკეთება თბილისში • ვირუსების მოცილება • Windows • Wi‑Fi"
     },
 
     ru: {
-      badge: "Компьютерный мастер на выезд • Тбилиси",
-      heroTitle: "Медленный ноутбук, вирусы или проблемы с Wi‑Fi? Приезжаю и чиню на месте.",
-      heroSubtitle: "Tbilisi Computer Handyman – выездной компьютерный мастер: прихожу к вам домой или в офис, решаю проблему и объясняю всё простым языком, без лишнего тех-жаргона.",
-      heroMainCta: "Позвонить сейчас",
-      heroSecondaryCta: "Описать проблему в сообщении",
-      heroNote: "Работаю по Тбилиси. Многие программные проблемы можно решить удалённо.",
-      heroCardTitle: "Что чаще всего чиню",
+      badge: "Выездной компьютерный мастер • Тбилиси",
+      heroTitle: "Компьютерный мастер на дому в Тбилиси",
+      heroSubtitle: "Ремонт ноутбуков и ПК у вас дома или в офисе. Медленный ноутбук, вирусы, проблемы с Wi‑Fi или Windows? Решаем всё за одно посещение, без очередей и лишних поездок.",
+      heroMainCta: "Вызвать мастера",
+      heroSecondaryCta: "Узнать стоимость услуг",
+      heroNote: "Выезд в день обращения. Диагностика занимает около 30 минут, большинство неисправностей устраняются сразу на месте.",
+      heroCardTitle: "Почему обращаются ко мне",
       heroCardList: [
-        "Ноутбук долго загружается, тормозит, перегревается",
-        "Вирусы, странные всплывающие окна и реклама",
-        "Постоянные обрывы Wi‑Fi дома или в офисе",
-        "Первоначальная настройка нового компьютера и базовое обучение"
+        "Выездной мастер приезжает в удобное для вас время",
+        "Честная диагностика и прозрачные цены без скрытых платежей",
+        "Ремонт медленных ноутбуков и ПК, удаление вирусов, настройка интернета",
+        "Работа с Windows: установка, переустановка и полная настройка",
+        "Гарантия на выполненные работы"
       ],
-      servicesTitle: "Услуги, с которыми могу помочь",
-      servicesIntro: "Работаю с домашними пользователями и небольшими офисами – беру на себя технику, чтобы вы могли спокойно заниматься своими делами.",
+      servicesTitle: "Какие проблемы я решаю",
+      servicesIntro: "От ремонта ноутбука до настройки Wi‑Fi — всё делается на месте. Вам не нужно везти компьютер в сервис и ждать несколько дней: мастер приезжает, диагностирует и чинит сразу.",
       servicesPills: [
-        "Диагностика ноутбуков и ПК",
-        "Установка и чистка Windows",
-        "Удаление вирусов и вредных программ",
-        "Настройка интернета и Wi‑Fi",
-        "Удалённая и выездная поддержка"
+        "Ремонт ноутбуков в Тбилиси",
+        "Ремонт компьютеров на дому",
+        "Установка и переустановка Windows",
+        "Удаление вирусов",
+        "Настройка Wi‑Fi и роутера",
+        "Ускорение работы ноутбука",
+        "Диагностика ПК"
       ],
       servicesBlocks: [
         {
-          title: "Ноутбуки и ПК",
+          title: "Медленный ноутбук или зависающий компьютер",
           items: [
-            "Медленная работа, зависания и проблемы с запуском",
-            "Перегрев, шум вентиляторов",
-            "Забитый диск, постоянно не хватает места"
+            "Чистка системы от мусора, лишних программ и автозапуска",
+            "Проверка жёсткого диска и оперативной памяти, при необходимости замена",
+            "Оптимизация Windows для более быстрой работы"
           ]
         },
         {
-          title: "Windows и программы",
+          title: "Удаление вирусов и защита",
           items: [
-            "Чистая установка Windows и драйверов",
-            "Удаление старых и ненужных программ",
-            "Установка нужного софта (браузеры, офис, мессенджеры и т.д.)"
+            "Полное сканирование системы и удаление вредоносных программ",
+            "Установка актуального антивируса и настройка защиты",
+            "Рекомендации по безопасному использованию интернета и почты"
           ]
         },
         {
-          title: "Вирусы и безопасность",
+          title: "Установка и переустановка Windows",
           items: [
-            "Поиск и удаление вирусов и троянов",
-            "Очистка браузера от странных стартовых страниц",
-            "Базовая настройка безопасности почты и аккаунтов"
+            "Чистая установка Windows на ноутбук или ПК",
+            "Сохранение и перенос важных файлов перед переустановкой",
+            "Установка драйверов и необходимого программного обеспечения"
           ]
         },
         {
-          title: "Wi‑Fi и сеть",
+          title: "Настройка Wi‑Fi и домашней сети",
           items: [
-            "Настройка покрытия Wi‑Fi по квартире или офису",
-            "Перенастройка роутера, смена пароля и имени сети",
-            "Диагностика проблем с нестабильным интернетом"
+            "Настройка роутера и Wi‑Fi, решение проблем с отключением",
+            "Оптимизация покрытия и скорости интернета в квартире или офисе",
+            "Подключение устройств к домашней сети и облачным сервисам"
           ]
         }
       ],
-      aboutTitle: "Кто оказывает услугу",
-      aboutText: "Я независимый компьютерный мастер в Тбилиси. Помогаю людям и малому бизнесу, чтобы техника работала стабильно и не мешала работе. Объясняю простым языком и заранее обсуждаю, что можно сделать и сколько это примерно будет стоить.",
+      aboutTitle: "Обо мне",
+      aboutText: "Более нескольких лет помогаю жителям Тбилиси решать проблемы с компьютерами и ноутбуками прямо у них дома. Я знаю, что вам важны скорость, честность и отсутствие лишней суеты, поэтому приезжаю в день звонка, быстро диагностирую проблему и предлагаю понятное решение с прозрачной ценой.",
       processTitle: "Как всё происходит",
       processSteps: [
-        "Вы звоните или пишете и коротко описываете проблему.",
-        "Я объясняю возможную причину и примерный диапазон цены.",
-        "Мы договариваемся о времени – приезжаю к вам или подключаюсь удалённо.",
-        "В Тбилиси выезд производится по договорённости, в удобное для вас время."
+        "Вы звоните или пишете и коротко описываете проблему",
+        "Договариваемся о времени, мастер приезжает и проводит диагностику",
+        "Озвучиваю стоимость и приступаю к ремонту только с вашего согласия",
+        "После ремонта проверяем результат, даю рекомендации и гарантию"
       ],
       faqTitle: "Частые вопросы",
       faq: [
         {
-          q: "Вы выезжаете на дом / в офис?",
-          a: "Да, работаю с выездом по Тбилиси. Если проблема только программная, можно решить её удалённо."
+          q: "Вы выезжаете по всему Тбилиси?",
+          a: "Да, работаю по всему Тбилиси. В некоторых случаях программные проблемы можно решить и удалённо, без выезда."
         },
         {
-          q: "Сколько стоят услуги?",
-          a: "Цена зависит от задачи, но вы всегда заранее узнаёте диапазон до начала работ. Никаких неожиданных платежей."
+          q: "Сколько стоит ремонт компьютера?",
+          a: "Стоимость зависит от конкретной неисправности, но цену вы узнаёте заранее, после диагностики. Никаких скрытых платежей или неожиданных доплат."
         },
         {
           q: "С какими устройствами вы работаете?",
-          a: "Ноутбуки и стационарные ПК (в основном Windows), домашние и небольшие офисные сети и роутеры."
+          a: "Работаю с ноутбуками и стационарными ПК на Windows, а также с домашними и небольшими офисными сетями и роутерами."
         }
       ],
-      finalCtaTitle: "Нужна помощь сегодня?",
-      finalCtaText: "Если компьютер или интернет мешают нормально работать, просто кратко опишите, что происходит, – я подскажу, сможем ли решить это сразу или лучше другой вариант.",
-      finalCtaBtn: "Позвонить сейчас",
-      finalCtaSecondary: "Написать и описать проблему",
-      footerLine: "Tbilisi Computer Handyman • Выездной компьютерный мастер в Тбилиси"
-    },
-
-    en: {
-      badge: "On-site computer handyman • Tbilisi",
-      heroTitle: "Slow laptop, weird pop‑ups or Wi‑Fi issues? I fix it at your home or office.",
-      heroSubtitle: "Tbilisi Computer Handyman – independent IT handyman helping home users and small businesses keep their tech running smoothly, without confusing jargon or surprise fees.",
-      heroMainCta: "Call now",
-      heroSecondaryCta: "Send a short description",
-      heroNote: "Serving all of Tbilisi. Many software issues can also be fixed remotely.",
-      heroCardTitle: "Common problems I fix",
-      heroCardList: [
-        "Very slow startup, overloaded Windows and junk programs",
-        "Viruses, strange pop‑ups and unwanted ads",
-        "Wi‑Fi dropping or weak signal at home or office",
-        "New PC setup and basic training for everyday use"
-      ],
-      servicesTitle: "What I can help you with",
-      servicesIntro: "You do not need to be tech-savvy – I take care of the technical side so you can focus on your work and life.",
-      servicesPills: [
-        "Laptop & desktop diagnostics",
-        "Windows install & cleanup",
-        "Virus & malware removal",
-        "Wi‑Fi & home/office network",
-        "Remote & on-site support"
-      ],
-      servicesBlocks: [
-        {
-          title: "Laptops and desktops",
-          items: [
-            "Slow, freezing or not booting at all",
-            "Overheating, loud fans, strange noises",
-            "Disk almost full and you do not know what to delete"
-          ]
-        },
-        {
-          title: "Windows and software",
-          items: [
-            "Clean Windows installation and drivers",
-            "Removing old and unnecessary programs",
-            "Installing essential apps (browsers, office, messengers, etc.)"
-          ]
-        },
-        {
-          title: "Viruses and security",
-          items: [
-            "Removing viruses, malware and adware",
-            "Cleaning up browsers and unwanted start pages",
-            "Basic security check for email and online accounts"
-          ]
-        },
-        {
-          title: "Wi‑Fi and networking",
-          items: [
-            "Improving Wi‑Fi coverage in your home or office",
-            "Router setup, password and network name changes",
-            "Finding the reason for constant internet drops"
-          ]
-        }
-      ],
-      aboutTitle: "Who is behind the service",
-      aboutText: "I am an independent IT handyman based in Tbilisi. With hands-on experience fixing computers and networks, I help home users and small businesses solve tech problems quickly and clearly, with transparent communication and pricing.",
-      processTitle: "How it works",
-      processSteps: [
-        "You call or message and briefly describe the problem.",
-        "I explain the likely cause and give you an estimated price range.",
-        "We pick a time, I come to you (or connect remotely) and fix the issue.",
-        "In Tbilisi, visits are scheduled flexibly to match your availability."
-      ],
-      faqTitle: "Frequently asked questions",
-      faq: [
-        {
-          q: "Do you come to my home or office?",
-          a: "Yes, I offer on-site service across Tbilisi. If the issue is software-only, remote support is often possible."
-        },
-        {
-          q: "How much does it cost?",
-          a: "The price depends on the problem, but you always know the range before any work starts. No hidden or surprise fees."
-        },
-        {
-          q: "Which devices do you work with?",
-          a: "Laptops and desktop PCs (mainly Windows), home and small office Wi‑Fi and routers."
-        }
-      ],
-      finalCtaTitle: "Need help today?",
-      finalCtaText: "If your computer or Wi‑Fi is making you crazy, do not wait – send a short message about what is happening and I will tell you the best next step.",
-      finalCtaBtn: "Call now",
-      finalCtaSecondary: "Send a short description",
-      footerLine: "Tbilisi Computer Handyman • On-site computer handyman in Tbilisi"
+      finalCtaTitle: "Нужна помощь с компьютером сегодня?",
+      finalCtaText: "Если ноутбук тормозит, Windows не загружается или Wi‑Fi постоянно пропадает, не откладывайте. Напишите или позвоните, и мы договоримся о выезде мастера в удобное для вас время.",
+      finalCtaBtn: "Вызвать мастера сейчас",
+      finalCtaSecondary: "Написать сообщение",
+      footerLine: "Компьютерный мастер на дому в Тбилиси • ремонт ноутбуков и ПК • удаление вирусов • Windows • настройка Wi‑Fi"
     }
   };
 
@@ -661,9 +671,7 @@
       });
     });
 
-  // default language
   renderLanguage("ka");
 </script>
 </body>
 </html>
-
