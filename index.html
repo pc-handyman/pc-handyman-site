@@ -1,1 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tbilisi Computer Handyman</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px;
+      border-bottom: 1px solid #1f2937;
+      position: sticky;
+      top: 0;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+    .logo {
+      font-weight: 600;
+      font-size: 18px;
+      color: #fbbf24;
+    }
+    .lang-switch button {
+      background: transparent;
+      border: none;
+      color: #9ca3af;
+      margin-left: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .lang-switch button.active {
+      color: #fbbf24;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 20px 40px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+      gap: 24px;
+      align-items: center;
+      padding: 24px 0;
+    }
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #111827;
+      border: 1px solid #374151;
+      font-size: 12px;
+      color: #9ca3af;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: clamp(26px, 4vw, 34px);
+      margin: 0 0 10px;
+      color: #f9fafb;
+    }
+    .subtitle {
+      font-size: 15px;
+      color: #d1d5db;
+      margin-bottom: 18px;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .btn-primary {
+      background: #fbbf24;
+      color: #111827;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #e5e7eb;
+      border: 1px solid #4b5563;
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .hero-note {
+      font-size: 13px;
+      color: #9ca3af;
+    }
+    .hero-card {
+      border-radius: 14px;
+      border: 1px solid #1f2937;
+      background: radial-gradient(circle at top left, #1f2937, #020617);
+      padding: 16px;
+      font-size: 13px;
+    }
+    .hero-card h2 {
+      font-size: 15px;
+      margin: 0 0 10px;
+      color: #e5e7eb;
+    }
+    section {
+      margin-top: 32px;
+    }
+    section h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #f9fafb;
+    }
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .pill {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #374151;
+      color: #9ca3af;
+    }
+    .grid-two {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .card {
+      border-radius: 12px;
+      border: 1px solid #1f2937;
+      padding: 12px 12px 14px;
+      background: #020617;
+      font-size: 13px;
+    }
+    .card h3 {
+      font-size: 14px;
+      margin: 0 0 6px;
+      color: #e5e7eb;
+    }
+    ul {
+      padding-left: 18px;
+      margin: 6px 0;
+      font-size: 13px;
+      color: #d1d5db;
+    }
+    li {
+      margin-bottom: 4px;
+    }
+    .faq-item {
+      margin-bottom: 10px;
+    }
+    .faq-q {
+      font-weight: 600;
+      font-size: 13px;
+      margin-bottom: 2px;
+      color: #e5e7eb;
+    }
+    .faq-a {
+      font-size: 13px;
+      color: #d1d5db;
+    }
+    footer {
+      margin-top: 30px;
+      padding-top: 12px;
+      border-top: 1px solid #1f2937;
+      font-size: 12px;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">Tbilisi Computer Handyman</div>
+  <div class="lang-switch">
+    <button data-lang="ka" class="active">KA</button>
+    <button data-lang="ru">RU</button>
+    <button data-lang="en">EN</button>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <div class="badge" id="badge"></div>
+      <h1 id="heroTitle"></h1>
+      <p class="subtitle" id="heroSubtitle"></p>
+      <div class="cta-row">
+        <a id="heroMainCta" class="btn-primary" href="tel:+995000000000"></a>
+        <a id="heroSecondaryCta" class="btn-secondary" href="mailto:yourmail@example.com"></a>
+      </div>
+      <p class="hero-note" id="heroNote"></p>
+    </div>
+    <div class="hero-card">
+      <h2 id="heroCardTitle"></h2>
+      <ul id="heroCardList"></ul>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section>
+    <h2 id="servicesTitle"></h2>
+    <p id="servicesIntro"></p>
+    <div class="pill-list" id="servicesPills"></div>
+    <div class="grid-two" id="servicesGrid"></div>
+  </section>
+
+  <!-- ABOUT + PROCESS -->
+  <section class="grid-two">
+    <div>
+      <h2 id="aboutTitle"></h2>
+      <p id="aboutText"></p>
+    </div>
+    <div>
+      <h2 id="processTitle"></h2>
+      <ol id="processList" style="padding-left:18px; font-size:13px; color:#d1d5db;"></ol>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <h2 id="faqTitle"></h2>
+    <div id="faqList"></div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section>
+    <h2 id="finalCtaTitle"></h2>
+    <p id="finalCtaText"></p>
+    <div class="cta-row">
+      <a id="finalCtaBtn" class="btn-primary" href="tel:+995000000000"></a>
+      <a id="finalCtaSecondary" class="btn-secondary" href="mailto:yourmail@example.com"></a>
+    </div>
+  </section>
+
+  <footer>
+    <div id="footerLine"></div>
+  </footer>
+</main>
+
+<script>
+  // CHANGE THIS TO YOUR REAL CONTACTS
+  const phoneHref = "tel:+995000000000";
+  const mailHref  = "mailto:yourmail@example.com";
+
+  const translations = {
+    ka: {
+      badge: "ონ-საიტი კომპიუტერული ჰენდი მენი • თბილისი",
+      heroTitle: "ნელად მომუშავე ლეპტოპი, ვირუსები თუ Wi‑Fi პრობლემები? მოვიდე და ადგილზე გაგისწორებ.",
+      heroSubtitle: "Tbilisi Computer Handyman – მოვდივარ შენს სახლში ან ოფისში, ვასწორებ პრობლემას და ყველაფერს მოვლენრივ ენაზე გიხსნი, ზედმეტი ტექნიკური ჟარგონის გარეშე.",
+      heroMainCta: "დარეკე ახლავე",
+      heroSecondaryCta: "მისწერე პრობლემის მოკლე აღწერა",
+      heroNote: "მოვემსახურები თბილისის მასშტაბით. პროგრამული პრობლემების ნაწილი შეიძლება დისტანციურადაც მოგვარდეს.",
+      heroCardTitle: "რა ტიპის პრობლემებს ვასწორებ ხშირად",
+      heroCardList: [
+        "ნელად ჩართვა, გაქრომილი Windows და ზედმეტი პროგრამები",
+        "ვირუსები, უცნაური პოპაპები და რეკლამები",
+        "Wi‑Fi გათიშვები და სუსტი სიგნალი სახლში ან ოფისში",
+        "ახალი კომპიუტერის პირველადი დაყენება და საბაზო დატრეინინგება"
+      ],
+      servicesTitle: "სერვისები, რაშიც დაგეხმარები",
+      servicesIntro: "ვმუშაობ როგორც სახლში, ისე მცირე ოფისებში – ტექნიკურ მხარეს მე ვაგვარებ, შენ კი მშვიდად აგრძელებ მუშაობას.",
+      servicesPills: [
+        "ლეპტოპებისა და დესქთოპების დიაგნოსტიკა",
+        "Windows ინსტალაცია და გასუფთავება",
+        "ვირუსები და მავნე პროგრამები",
+        "ინტერნეტი და Wi‑Fi",
+        "ონლაინ და ადგილზე მხარდაჭერა"
+      ],
+      servicesBlocks: [
+        {
+          title: "ლეპტოპი და დესქთოპი",
+          items: [
+            "ნელა მუშაობს, ჭედავს ან აღარ ირთვება",
+            "ხურდება, ხმაურობს, ქულერი წიკწიკებს",
+            "დისკის სივრცე შეჭამულია და აღარ იცით, რა წაშალოთ"
+          ]
+        },
+        {
+          title: "Windows და პროგრამები",
+          items: [
+            "სუფთა Windows-ის ჩაყენება და დრაივერების დაყენება",
+            "ძველი, გამოუსადეგარი პროგრამების მოცილება",
+            "საჭირო პროგრამების დაყენება (ბრაუზერები, ოფისი, მესიინჯერები და ა.შ.)"
+          ]
+        },
+        {
+          title: "ვირუსები და უსაფრთხოება",
+          items: [
+            "ვირუსებისა და მავნე პროგრამების მოშორება",
+            "ბრაუზერში უცნაური საწყისი გვერდების გაწმენდა",
+            "საფოსტო და სხვა ანგარიშების საბაზო უსაფრთხოების დალაგება"
+          ]
+        },
+        {
+          title: "Wi‑Fi და ქსელი",
+          items: [
+            "მთელ ბინაში/ოფისში Wi‑Fi-ს დაფარვის დალაგება",
+            "რუტერის გადაწყობა, პაროლის და სახელის შეცვლა",
+            "პრობლემების დიაგნოსტიკა, როცა ინტერნეტი ხშირად ითიშება"
+          ]
+        }
+      ],
+      aboutTitle: "ვინ დგას მომსახურების უკან",
+      aboutText: "მე ვარ დამოუკიდებელი IT ჰენდი მენი თბილისში – ვეხმარები ადამიანებს, რომ კომპიუტერმა და ინტერნეტმა საქმე არ დაუბრკოლოთ. ვმუშაობ მარტივად: ვუსმენ, ვხსნი ადამიანურ ენაზე და წინასწარ გეუბნები, რა შეიძლება გაკეთდეს და რა დაჯდება.",
+      processTitle: "როგორ მუშაობს ეს ყველაფერი",
+      processSteps: [
+        "მომწერე ან დამირეკე და მოკლედ მომიყევი, რა პრობლემა გაქვს.",
+        "გეტყვი, სავარაუდოდ რა არის მიზეზი და რა შეიძლება დაჯდეს გამოსწორება.",
+        "ვერთრანზდებით დროს, მოვდივარ შენთან (ან დისტანციურად უერთდები) და ვასწორებ პრობლემას.",
+        "თბილისის ფარგლებში მოსვლა შეთანხმებული გრაფიკით, მაქსიმალურად მოქნილი საათებით."
+      ],
+      faqTitle: "ხშირად დასმული კითხვები",
+      faq: [
+        {
+          q: "მოდის თუ არა ადგილზე, სახლში / ოფისში?",
+          a: "დიახ, ვმუშაობ საქალაქო რეჟიმში – სახლში თუ ოფისში გესტუმრები. თუ პრობლემა მხოლოდ პროგრამულია, შეიძლება დისტანციურადაც გადაწყდეს."
+        },
+        {
+          q: "რამდენი ჯდება მომსახურება?",
+          a: "ფასი დამოკიდებულია პრობლემაზე, მაგრამ ყოველთვის წინასწარ გაიგებ დიაპაზონს, სანამ რამეს დავიწყებ. მოულოდნელი გადასახადები არ იქნება."
+        },
+        {
+          q: "რა მოწყობილობებზე მუშაობ?",
+          a: "ლეპტოპები და დესქთოპები (ძირითადად Windows), სახლის და მცირე ოფისის Wi‑Fi/ქსელი."
+        }
+      ],
+      finalCtaTitle: "გჭირდება დახმარება დღეს?",
+      finalCtaText: "თუ კომპიუტერი ან Wi‑Fi ნერვებს გიშლის, ნუ გადადებ – მოკლედ მომწერე რა ხდება, და გეტყვი, შეგვიძლია მაშინვე გავასწოროთ თუ სხვა გზა ჯობია.",
+      finalCtaBtn: "დარეკე ახლავე",
+      finalCtaSecondary: "მისწერე პრობლემის მოკლე აღწერა",
+      footerLine: "Tbilisi Computer Handyman • კომპიუტერული ჰენდი მენი თბილისში"
+    },
+
+    ru: {
+      badge: "Компьютерный мастер на выезд • Тбилиси",
+      heroTitle: "Медленный ноутбук, вирусы или проблемы с Wi‑Fi? Приезжаю и чиню на месте.",
+      heroSubtitle: "Tbilisi Computer Handyman – выездной компьютерный мастер: прихожу к вам домой или в офис, решаю проблему и объясняю всё простым языком, без лишнего тех-жаргона.",
+      heroMainCta: "Позвонить сейчас",
+      heroSecondaryCta: "Описать проблему в сообщении",
+      heroNote: "Работаю по Тбилиси. Многие программные проблемы можно решить удалённо.",
+      heroCardTitle: "Что чаще всего чиню",
+      heroCardList: [
+        "Ноутбук долго загружается, тормозит, перегревается",
+        "Вирусы, странные всплывающие окна и реклама",
+        "Постоянные обрывы Wi‑Fi дома или в офисе",
+        "Первоначальная настройка нового компьютера и базовое обучение"
+      ],
+      servicesTitle: "Услуги, с которыми могу помочь",
+      servicesIntro: "Работаю с домашними пользователями и небольшими офисами – беру на себя технику, чтобы вы могли спокойно заниматься своими делами.",
+      servicesPills: [
+        "Диагностика ноутбуков и ПК",
+        "Установка и чистка Windows",
+        "Удаление вирусов и вредных программ",
+        "Настройка интернета и Wi‑Fi",
+        "Удалённая и выездная поддержка"
+      ],
+      servicesBlocks: [
+        {
+          title: "Ноутбуки и ПК",
+          items: [
+            "Медленная работа, зависания и проблемы с запуском",
+            "Перегрев, шум вентиляторов",
+            "Забитый диск, постоянно не хватает места"
+          ]
+        },
+        {
+          title: "Windows и программы",
+          items: [
+            "Чистая установка Windows и драйверов",
+            "Удаление старых и ненужных программ",
+            "Установка нужного софта (браузеры, офис, мессенджеры и т.д.)"
+          ]
+        },
+        {
+          title: "Вирусы и безопасность",
+          items: [
+            "Поиск и удаление вирусов и троянов",
+            "Очистка браузера от странных стартовых страниц",
+            "Базовая настройка безопасности почты и аккаунтов"
+          ]
+        },
+        {
+          title: "Wi‑Fi и сеть",
+          items: [
+            "Настройка покрытия Wi‑Fi по квартире или офису",
+            "Перенастройка роутера, смена пароля и имени сети",
+            "Диагностика проблем с нестабильным интернетом"
+          ]
+        }
+      ],
+      aboutTitle: "Кто оказывает услугу",
+      aboutText: "Я независимый компьютерный мастер в Тбилиси. Помогаю людям и малому бизнесу, чтобы техника работала стабильно и не мешала работе. Объясняю простым языком и заранее обсуждаю, что можно сделать и сколько это примерно будет стоить.",
+      processTitle: "Как всё происходит",
+      processSteps: [
+        "Вы звоните или пишете и коротко описываете проблему.",
+        "Я объясняю возможную причину и примерный диапазон цены.",
+        "Мы договариваемся о времени – приезжаю к вам или подключаюсь удалённо.",
+        "В Тбилиси выезд производится по договорённости, в удобное для вас время."
+      ],
+      faqTitle: "Частые вопросы",
+      faq: [
+        {
+          q: "Вы выезжаете на дом / в офис?",
+          a: "Да, работаю с выездом по Тбилиси. Если проблема только программная, можно решить её удалённо."
+        },
+        {
+          q: "Сколько стоят услуги?",
+          a: "Цена зависит от задачи, но вы всегда заранее узнаёте диапазон до начала работ. Никаких неожиданных платежей."
+        },
+        {
+          q: "С какими устройствами вы работаете?",
+          a: "Ноутбуки и стационарные ПК (в основном Windows), домашние и небольшие офисные сети и роутеры."
+        }
+      ],
+      finalCtaTitle: "Нужна помощь сегодня?",
+      finalCtaText: "Если компьютер или интернет мешают нормально работать, просто кратко опишите, что происходит, – я подскажу, сможем ли решить это сразу или лучше другой вариант.",
+      finalCtaBtn: "Позвонить сейчас",
+      finalCtaSecondary: "Написать и описать проблему",
+      footerLine: "Tbilisi Computer Handyman • Выездной компьютерный мастер в Тбилиси"
+    },
+
+    en: {
+      badge: "On-site computer handyman • Tbilisi",
+      heroTitle: "Slow laptop, weird pop‑ups or Wi‑Fi issues? I fix it at your home or office.",
+      heroSubtitle: "Tbilisi Computer Handyman – independent IT handyman helping home users and small businesses keep their tech running smoothly, without confusing jargon or surprise fees.",
+      heroMainCta: "Call now",
+      heroSecondaryCta: "Send a short description",
+      heroNote: "Serving all of Tbilisi. Many software issues can also be fixed remotely.",
+      heroCardTitle: "Common problems I fix",
+      heroCardList: [
+        "Very slow startup, overloaded Windows and junk programs",
+        "Viruses, strange pop‑ups and unwanted ads",
+        "Wi‑Fi dropping or weak signal at home or office",
+        "New PC setup and basic training for everyday use"
+      ],
+      servicesTitle: "What I can help you with",
+      servicesIntro: "You do not need to be tech-savvy – I take care of the technical side so you can focus on your work and life.",
+      servicesPills: [
+        "Laptop & desktop diagnostics",
+        "Windows install & cleanup",
+        "Virus & malware removal",
+        "Wi‑Fi & home/office network",
+        "Remote & on-site support"
+      ],
+      servicesBlocks: [
+        {
+          title: "Laptops and desktops",
+          items: [
+            "Slow, freezing or not booting at all",
+            "Overheating, loud fans, strange noises",
+            "Disk almost full and you do not know what to delete"
+          ]
+        },
+        {
+          title: "Windows and software",
+          items: [
+            "Clean Windows installation and drivers",
+            "Removing old and unnecessary programs",
+            "Installing essential apps (browsers, office, messengers, etc.)"
+          ]
+        },
+        {
+          title: "Viruses and security",
+          items: [
+            "Removing viruses, malware and adware",
+            "Cleaning up browsers and unwanted start pages",
+            "Basic security check for email and online accounts"
+          ]
+        },
+        {
+          title: "Wi‑Fi and networking",
+          items: [
+            "Improving Wi‑Fi coverage in your home or office",
+            "Router setup, password and network name changes",
+            "Finding the reason for constant internet drops"
+          ]
+        }
+      ],
+      aboutTitle: "Who is behind the service",
+      aboutText: "I am an independent IT handyman based in Tbilisi. With hands-on experience fixing computers and networks, I help home users and small businesses solve tech problems quickly and clearly, with transparent communication and pricing.",
+      processTitle: "How it works",
+      processSteps: [
+        "You call or message and briefly describe the problem.",
+        "I explain the likely cause and give you an estimated price range.",
+        "We pick a time, I come to you (or connect remotely) and fix the issue.",
+        "In Tbilisi, visits are scheduled flexibly to match your availability."
+      ],
+      faqTitle: "Frequently asked questions",
+      faq: [
+        {
+          q: "Do you come to my home or office?",
+          a: "Yes, I offer on-site service across Tbilisi. If the issue is software-only, remote support is often possible."
+        },
+        {
+          q: "How much does it cost?",
+          a: "The price depends on the problem, but you always know the range before any work starts. No hidden or surprise fees."
+        },
+        {
+          q: "Which devices do you work with?",
+          a: "Laptops and desktop PCs (mainly Windows), home and small office Wi‑Fi and routers."
+        }
+      ],
+      finalCtaTitle: "Need help today?",
+      finalCtaText: "If your computer or Wi‑Fi is making you crazy, do not wait – send a short message about what is happening and I will tell you the best next step.",
+      finalCtaBtn: "Call now",
+      finalCtaSecondary: "Send a short description",
+      footerLine: "Tbilisi Computer Handyman • On-site computer handyman in Tbilisi"
+    }
+  };
+
+  const els = {
+    badge: document.getElementById("badge"),
+    heroTitle: document.getElementById("heroTitle"),
+    heroSubtitle: document.getElementById("heroSubtitle"),
+    heroMainCta: document.getElementById("heroMainCta"),
+    heroSecondaryCta: document.getElementById("heroSecondaryCta"),
+    heroNote: document.getElementById("heroNote"),
+    heroCardTitle: document.getElementById("heroCardTitle"),
+    heroCardList: document.getElementById("heroCardList"),
+    servicesTitle: document.getElementById("servicesTitle"),
+    servicesIntro: document.getElementById("servicesIntro"),
+    servicesPills: document.getElementById("servicesPills"),
+    servicesGrid: document.getElementById("servicesGrid"),
+    aboutTitle: document.getElementById("aboutTitle"),
+    aboutText: document.getElementById("aboutText"),
+    processTitle: document.getElementById("processTitle"),
+    processList: document.getElementById("processList"),
+    faqTitle: document.getElementById("faqTitle"),
+    faqList: document.getElementById("faqList"),
+    finalCtaTitle: document.getElementById("finalCtaTitle"),
+    finalCtaText: document.getElementById("finalCtaText"),
+    finalCtaBtn: document.getElementById("finalCtaBtn"),
+    finalCtaSecondary: document.getElementById("finalCtaSecondary"),
+    footerLine: document.getElementById("footerLine")
+  };
+
+  function renderLanguage(lang) {
+    const t = translations[lang];
+    if (!t) return;
+
+    document.documentElement.lang = lang;
+
+    els.badge.textContent = t.badge;
+    els.heroTitle.textContent = t.heroTitle;
+    els.heroSubtitle.textContent = t.heroSubtitle;
+    els.heroMainCta.textContent = t.heroMainCta;
+    els.heroSecondaryCta.textContent = t.heroSecondaryCta;
+    els.heroNote.textContent = t.heroNote;
+
+    els.heroMainCta.href = phoneHref;
+    els.heroSecondaryCta.href = mailHref;
+    els.finalCtaBtn.href = phoneHref;
+    els.finalCtaSecondary.href = mailHref;
+
+    els.heroCardTitle.textContent = t.heroCardTitle;
+    els.heroCardList.innerHTML = "";
+    t.heroCardList.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      els.heroCardList.appendChild(li);
+    });
+
+    els.servicesTitle.textContent = t.servicesTitle;
+    els.servicesIntro.textContent = t.servicesIntro;
+
+    els.servicesPills.innerHTML = "";
+    t.servicesPills.forEach(p => {
+      const span = document.createElement("span");
+      span.className = "pill";
+      span.textContent = p;
+      els.servicesPills.appendChild(span);
+    });
+
+    els.servicesGrid.innerHTML = "";
+    t.servicesBlocks.forEach(block => {
+      const div = document.createElement("div");
+      div.className = "card";
+      const h3 = document.createElement("h3");
+      h3.textContent = block.title;
+      div.appendChild(h3);
+      const ul = document.createElement("ul");
+      block.items.forEach(it => {
+        const li = document.createElement("li");
+        li.textContent = it;
+        ul.appendChild(li);
+      });
+      div.appendChild(ul);
+      els.servicesGrid.appendChild(div);
+    });
+
+    els.aboutTitle.textContent = t.aboutTitle;
+    els.aboutText.textContent = t.aboutText;
+
+    els.processTitle.textContent = t.processTitle;
+    els.processList.innerHTML = "";
+    t.processSteps.forEach(step => {
+      const li = document.createElement("li");
+      li.textContent = step;
+      els.processList.appendChild(li);
+    });
+
+    els.faqTitle.textContent = t.faqTitle;
+    els.faqList.innerHTML = "";
+    t.faq.forEach(item => {
+      const wrap = document.createElement("div");
+      wrap.className = "faq-item";
+      const q = document.createElement("div");
+      q.className = "faq-q";
+      q.textContent = item.q;
+      const a = document.createElement("div");
+      a.className = "faq-a";
+      a.textContent = item.a;
+      wrap.appendChild(q);
+      wrap.appendChild(a);
+      els.faqList.appendChild(wrap);
+    });
+
+    els.finalCtaTitle.textContent = t.finalCtaTitle;
+    els.finalCtaText.textContent = t.finalCtaText;
+    els.finalCtaBtn.textContent = t.finalCtaBtn;
+    els.finalCtaSecondary.textContent = t.finalCtaSecondary;
+    els.footerLine.textContent = t.footerLine;
+
+    document
+      .querySelectorAll(".lang-switch button")
+      .forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+      });
+  }
+
+  document
+    .querySelectorAll(".lang-switch button")
+    .forEach(btn => {
+      btn.addEventListener("click", () => {
+        renderLanguage(btn.dataset.lang);
+      });
+    });
+
+  // default language
+  renderLanguage("ka");
+</script>
+</body>
+</html>
 
