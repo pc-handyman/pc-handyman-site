@@ -583,10 +583,18 @@
     els.heroSecondaryCta.textContent = t.heroSecondaryCta;
     els.heroNote.textContent = t.heroNote;
 
-    els.heroMainCta.href = phoneHref;
-    els.heroSecondaryCta.href = mailHref;
-    els.finalCtaBtn.href = phoneHref;
-    els.finalCtaSecondary.href = mailHref;
+    // default – Georgian / Russian: ქართული ტექსტით
+    let waLink = whatsappHref;
+
+    // თუ ინგლისური ენაა, ინგლისური ტექსტით
+    if (lang === "en") {
+      waLink = whatsappHrefEn;
+    }
+
+els.heroMainCta.href = waLink;
+els.heroSecondaryCta.href = waLink;
+els.finalCtaBtn.href = waLink;
+els.finalCtaSecondary.href = waLink;
 
     els.heroCardTitle.textContent = t.heroCardTitle;
     els.heroCardList.innerHTML = "";
