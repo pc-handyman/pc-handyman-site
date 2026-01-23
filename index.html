@@ -5,192 +5,325 @@
   <title>Tbilisi Computer Handyman</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #0f172a;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0a0f1e;
       color: #e5e7eb;
-      line-height: 1.6;
+      line-height: 1.7;
     }
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 20px;
+      padding: 16px 24px;
       border-bottom: 1px solid #1f2937;
       position: sticky;
       top: 0;
-      background: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(10px);
-      z-index: 10;
+      background: rgba(10, 15, 30, 0.95);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
     .logo {
-      font-weight: 600;
-      font-size: 18px;
+      font-weight: 700;
+      font-size: 19px;
       color: #fbbf24;
+      letter-spacing: -0.3px;
     }
     .lang-switch button {
       background: transparent;
-      border: none;
+      border: 1px solid transparent;
       color: #9ca3af;
-      margin-left: 8px;
+      margin-left: 10px;
       cursor: pointer;
       font-size: 14px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .lang-switch button:hover {
+      background: #1f2937;
+      color: #e5e7eb;
     }
     .lang-switch button.active {
-      color: #fbbf24;
+      background: #fbbf24;
+      color: #0a0f1e;
       font-weight: 600;
-      text-decoration: underline;
+      border-color: #fbbf24;
     }
     main {
-      max-width: 960px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 24px 20px 40px;
+      padding: 32px 24px 60px;
     }
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
-      gap: 24px;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
+      gap: 32px;
       align-items: center;
-      padding: 24px 0;
+      padding: 40px 0 60px;
+      background: radial-gradient(ellipse at top left, rgba(59, 130, 246, 0.08), transparent 50%);
+      border-radius: 20px;
+      margin-bottom: 20px;
     }
     @media (max-width: 768px) {
       .hero {
         grid-template-columns: 1fr;
+        padding: 24px 0 40px;
       }
     }
     .badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
+      gap: 8px;
+      padding: 6px 14px;
       border-radius: 999px;
-      background: #111827;
+      background: linear-gradient(135deg, #1f2937, #0f172a);
       border: 1px solid #374151;
-      font-size: 12px;
-      color: #9ca3af;
-      margin-bottom: 10px;
+      font-size: 13px;
+      color: #fbbf24;
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+    .badge::before {
+      content: "⚡";
+      font-size: 16px;
     }
     h1 {
-      font-size: clamp(26px, 4vw, 34px);
-      margin: 0 0 10px;
+      font-size: clamp(30px, 5vw, 42px);
+      margin: 0 0 16px;
       color: #f9fafb;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
     }
     .subtitle {
-      font-size: 15px;
+      font-size: 16px;
       color: #d1d5db;
-      margin-bottom: 18px;
+      margin-bottom: 24px;
+      line-height: 1.7;
     }
     .cta-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
       align-items: center;
-      margin-bottom: 14px;
+      margin-bottom: 20px;
     }
     .btn-primary {
-      background: #fbbf24;
-      color: #111827;
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      color: #0a0f1e;
       border: none;
-      padding: 10px 18px;
+      padding: 13px 24px;
       border-radius: 999px;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 15px;
       text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 14px rgba(251, 191, 36, 0.4);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(251, 191, 36, 0.6);
+    }
+    .btn-primary::before {
+      content: "📞";
+      font-size: 18px;
     }
     .btn-secondary {
-      background: transparent;
+      background: rgba(255,255,255,0.05);
       color: #e5e7eb;
       border: 1px solid #4b5563;
-      padding: 9px 16px;
+      padding: 12px 20px;
       border-radius: 999px;
-      font-size: 13px;
+      font-size: 14px;
       cursor: pointer;
       text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: #6b7280;
+    }
+    .btn-secondary::before {
+      content: "💬";
+      font-size: 16px;
     }
     .hero-note {
       font-size: 13px;
       color: #9ca3af;
+      line-height: 1.6;
     }
     .hero-card {
-      border-radius: 14px;
+      border-radius: 16px;
       border: 1px solid #1f2937;
-      background: radial-gradient(circle at top left, #1f2937, #020617);
-      padding: 16px;
-      font-size: 13px;
+      background: linear-gradient(135deg, #1a2332, #0f1724);
+      padding: 24px;
+      font-size: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
     }
     .hero-card h2 {
-      font-size: 15px;
-      margin: 0 0 10px;
-      color: #e5e7eb;
+      font-size: 17px;
+      margin: 0 0 14px;
+      color: #f9fafb;
+      font-weight: 700;
     }
+    .hero-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .hero-card li {
+      padding: 8px 0 8px 28px;
+      position: relative;
+      color: #d1d5db;
+      line-height: 1.5;
+    }
+    .hero-card li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #10b981;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    
+    /* Trust badges */
+    .trust-badges {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin: 40px 0 50px;
+    }
+    .trust-badge {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 14px;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 13px;
+      color: #d1d5db;
+    }
+    .trust-badge-icon {
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+    .trust-badge-text {
+      font-weight: 600;
+      color: #10b981;
+    }
+    
     section {
-      margin-top: 32px;
+      margin-top: 60px;
     }
     section h2 {
-      font-size: 20px;
-      margin-bottom: 10px;
+      font-size: 28px;
+      margin-bottom: 12px;
       color: #f9fafb;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    section > p {
+      color: #d1d5db;
+      margin-bottom: 20px;
+      font-size: 15px;
     }
     .pill-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 10px;
+      gap: 10px;
+      margin-bottom: 24px;
     }
     .pill {
-      font-size: 12px;
-      padding: 4px 10px;
+      font-size: 13px;
+      padding: 6px 14px;
       border-radius: 999px;
       border: 1px solid #374151;
+      background: rgba(255,255,255,0.03);
       color: #9ca3af;
+      transition: all 0.2s;
+    }
+    .pill:hover {
+      background: rgba(59, 130, 246, 0.1);
+      border-color: #3b82f6;
+      color: #93c5fd;
     }
     .grid-two {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
     }
     .card {
-      border-radius: 12px;
+      border-radius: 14px;
       border: 1px solid #1f2937;
-      padding: 12px 12px 14px;
-      background: #020617;
-      font-size: 13px;
+      padding: 20px;
+      background: linear-gradient(135deg, #0f1724, #0a0f1e);
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+    .card:hover {
+      border-color: #374151;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
     }
     .card h3 {
-      font-size: 14px;
-      margin: 0 0 6px;
+      font-size: 16px;
+      margin: 0 0 12px;
       color: #e5e7eb;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-icon {
+      font-size: 24px;
     }
     ul {
-      padding-left: 18px;
-      margin: 6px 0;
-      font-size: 13px;
+      padding-left: 20px;
+      margin: 8px 0;
+      font-size: 14px;
       color: #d1d5db;
     }
     li {
-      margin-bottom: 4px;
+      margin-bottom: 6px;
+      line-height: 1.5;
     }
     .faq-item {
-      margin-bottom: 10px;
+      margin-bottom: 18px;
+      padding: 16px;
+      background: rgba(255,255,255,0.02);
+      border-radius: 10px;
+      border: 1px solid #1f2937;
     }
     .faq-q {
-      font-weight: 600;
-      font-size: 13px;
-      margin-bottom: 2px;
-      color: #e5e7eb;
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: #f9fafb;
     }
     .faq-a {
-      font-size: 13px;
+      font-size: 14px;
       color: #d1d5db;
+      line-height: 1.6;
     }
     footer {
-      margin-top: 30px;
-      padding-top: 12px;
+      margin-top: 60px;
+      padding-top: 24px;
       border-top: 1px solid #1f2937;
-      font-size: 12px;
+      font-size: 13px;
       color: #6b7280;
+      text-align: center;
     }
   </style>
 </head>
@@ -223,6 +356,26 @@
     </div>
   </section>
 
+  <!-- TRUST BADGES -->
+  <div class="trust-badges">
+    <div class="trust-badge">
+      <div class="trust-badge-icon">⚡</div>
+      <div class="trust-badge-text" id="trustBadge1"></div>
+    </div>
+    <div class="trust-badge">
+      <div class="trust-badge-icon">🛡️</div>
+      <div class="trust-badge-text" id="trustBadge2"></div>
+    </div>
+    <div class="trust-badge">
+      <div class="trust-badge-icon">⭐</div>
+      <div class="trust-badge-text" id="trustBadge3"></div>
+    </div>
+    <div class="trust-badge">
+      <div class="trust-badge-icon">🏠</div>
+      <div class="trust-badge-text" id="trustBadge4"></div>
+    </div>
+  </div>
+
   <!-- SERVICES -->
   <section>
     <h2 id="servicesTitle"></h2>
@@ -239,448 +392,4 @@
     </div>
     <div>
       <h2 id="processTitle"></h2>
-      <ol id="processList" style="padding-left:18px; font-size:13px; color:#d1d5db;"></ol>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section>
-    <h2 id="faqTitle"></h2>
-    <div id="faqList"></div>
-  </section>
-
-  <!-- FINAL CTA -->
-  <section>
-    <h2 id="finalCtaTitle"></h2>
-    <p id="finalCtaText"></p>
-    <div class="cta-row">
-      <a id="finalCtaBtn" class="btn-primary"></a>
-      <a id="finalCtaSecondary" class="btn-secondary"></a>
-    </div>
-  </section>
-
-  <footer>
-    <div id="footerLine"></div>
-  </footer>
-</main>
-
-<script>
-  const whatsappHref = "https://wa.me/995555593673?text=გამარჯობა,%20კომპიუტერის%20შეკეთება%20მჭირდება";
-  const whatsappHrefEn = "https://wa.me/995555593673?text=Hi,%20I%20need%20computer%20repair";
-
-
-  const translations = {
-    en: {
-      badge: "Same-day computer repair in Tbilisi",
-      heroTitle: "Computer repair & laptop repair in Tbilisi — on-site technician today",
-      heroSubtitle: "Fix slow laptops, remove viruses, repair Windows, set up PCs and solve Wi‑Fi problems — English-speaking tech support at your home, no waiting days.",
-      heroMainCta: "Book on-site technician now",
-      heroSecondaryCta: "See pricing and services",
-      heroNote: "30‑minute diagnostic visit included. Same‑day repairs in most cases. English speaker available.",
-      heroCardTitle: "What you get with the visit",
-      heroCardList: [
-        "Same‑day on‑site repair at your home or office",
-        "English‑speaking, experienced technician",
-        "Transparent pricing with no surprise fees",
-        "Warranty on all parts and labor",
-        "Same‑day Windows reinstall available"
-      ],
-      servicesTitle: "Computer and laptop repair services in Tbilisi",
-      servicesIntro: "Whether your laptop is running slow, infected with a virus, having Wi‑Fi issues or needs a complete Windows setup, we come to you. No drop‑offs, no waiting rooms – professional repairs at your desk with fast turnaround.",
-      servicesPills: [
-        "Laptop repair Tbilisi",
-        "Computer repair near me",
-        "Virus removal",
-        "Windows repair & setup",
-        "Wi‑Fi & internet fix",
-        "Emergency computer repair",
-        "PC troubleshooting"
-      ],
-      servicesBlocks: [
-        {
-          title: "Slow laptop and PC performance",
-          items: [
-            "Diagnose why your computer is running slow",
-            "Remove malware and unnecessary startup programs",
-            "Upgrade RAM or SSD to boost speed"
-          ]
-        },
-        {
-          title: "Virus removal and Windows issues",
-          items: [
-            "Fast removal of viruses, malware and spyware",
-            "Repair corrupted Windows or reinstall from scratch",
-            "Back up and protect your data before reinstall"
-          ]
-        },
-        {
-          title: "Wi‑Fi and internet setup",
-          items: [
-            "Install and configure home or office Wi‑Fi networks",
-            "Fix disconnecting internet and weak Wi‑Fi signal",
-            "Set up and troubleshoot routers on all providers"
-          ]
-        },
-        {
-          title: "New PC setup and configuration",
-          items: [
-            "Complete setup of new laptops and desktop PCs",
-            "Transfer files and settings from your old device",
-            "Install and configure essential software and accounts"
-          ]
-        }
-      ],
-      aboutTitle: "Your English‑speaking computer repair specialist in Tbilisi",
-      aboutText: "Serving Tbilisi’s expat and local community with honest, reliable computer repair, focusing on on‑site laptop and PC service so you do not have to visit a shop. If your Windows will not start, your laptop is crawling or you need emergency tech support, you get same‑day help with clear communication, transparent pricing and guaranteed work quality.",
-      processTitle: "How on‑site computer repair works",
-      processSteps: [
-        "Call or message and briefly describe your issue",
-        "Technician arrives within hours for a 30‑minute diagnostic",
-        "You receive a clear quote and we start immediately if you approve",
-        "Most repairs are finished the same day, with warranty on all work"
-      ],
-      faqTitle: "Computer repair questions answered",
-      faq: [
-        {
-          q: "Why is my laptop so slow?",
-          a: "Most slow laptops are overloaded with background programs, malware or an old hard drive. Instead of guessing, your technician can find the exact cause in 30 minutes and apply the right fix."
-        },
-        {
-          q: "How do I safely remove a virus from my PC?",
-          a: "Viruses should be removed with professional tools to avoid data loss. Your system is scanned, cleaned and updated, then secured so the same problem is less likely to happen again."
-        },
-        {
-          q: "My Wi‑Fi keeps disconnecting – what should I do?",
-          a: "Unstable Wi‑Fi can be caused by router settings, interference or outdated drivers. During the visit your technician tests the whole setup and configures your network for stable, fast internet."
-        }
-      ],
-      finalCtaTitle: "Ready for faster, trouble‑free computing?",
-      finalCtaText: "Stop fighting with slow laptops, viruses and broken Wi‑Fi. Get an on‑site technician in Tbilisi today for fast diagnostics, same‑day repairs and English‑speaking support.",
-      finalCtaBtn: "Schedule your repair today",
-      finalCtaSecondary: "Call us directly",
-      footerLine: "Fast computer repair in Tbilisi • On‑site technician • Same‑day service • Virus removal • Windows repair • Wi‑Fi setup"
-    },
-
-    ka: {
-      badge: "ადგილზე კომპიუტერის შეკეთება • თბილისი",
-      heroTitle: "კომპიუტერისა და ლეპტოპის შეკეთება თბილისში – ტექნიკოსი მოვა შენთან",
-      heroSubtitle: "ლეპტოპი ნელა მუშაობს, Windows არ ეშვება, ვირუსები ან Wi‑Fi პრობლემები გაქვს? მოვალ სახლში თუ ოფისში, გავაკეთებ დიაგნოსტიკას და იმავე დღეს მოვაგვარებთ ყველაფერს.",
-      heroMainCta: "გამოიძახე ტექნიკოსი დღეს",
-      heroSecondaryCta: "მომწერე შენი პრობლემა",
-      heroNote: "თბილისის მასშტაბით გამოძახება. ხშირ შემთხვევაში პრობლემა იმავე ვიზიტზე fიქსირდება. მხოლოდ პროგრამულ საკითხებზე შესაძლებელია დისტანციური დახმარებაც.",
-      heroCardTitle: "რა ტიპის პრობლემებს ვასწორებ ყველაზე ხშირად",
-      heroCardList: [
-        "ძალიან ნელა მომუშავე ან გაჭედილი ლეპტოპი და დესქთოპი",
-        "ვირუსები, უცნაური პოპ‑აპები და არასასურველი პროგრამები",
-        "Wi‑Fi ითიშება, სიგნალი სუსტია ან საერთოდ არ იჭერს",
-        "Windows-ის გადაყენება, გაწმენდა და საჭირო პროგრამების დაყენება",
-        "ახალი კომპიუტერის პირველადი დაყენება და საბაზისო კონსულტაცია"
-      ],
-      servicesTitle: "სერვისები, რაშიც გეხმარები თბილისში",
-      servicesIntro: "არ არის საჭირო კომპიუტერის ტარება სერვისცენტრში. მოვდივარ შენთან, ადგილზე ვაკეთებ დიაგნოსტიკას და ვაგვარებ პრობლემას მაქსიმალურად სწრაფად – რომ შენმა ყოველდღიურმა საქმემ არ დაყოვნოს.",
-      servicesPills: [
-        "კომპიუტერის შეკეთება თბილისში",
-        "ლეპტოპის რემონტი",
-        "Windows გადაყენება",
-        "ვირუსის წაშლა",
-        "Wi‑Fi და ინტერნეტი",
-        "ონლაინ მხარდაჭერა",
-        "ადგილზე დიაგნოსტიკა"
-      ],
-      servicesBlocks: [
-        {
-          title: "ნელა მუშაობის და დაკიდების გამოსწორება",
-          items: [
-            "სისტემის დიაგნოსტიკა – ვნახულობ რა აფერხებს კომპიუტერს",
-            "ზედმეტი პროგრამებისა და მალვერის მოცილება, ავტოსტარტის დალაგება",
-            "დისკისა და ოპერატიული მეხსიერების შემოწმება და საჭიროებისას განახლება"
-          ]
-        },
-        {
-          title: "Windows და პროგრამები",
-          items: [
-            "Windows 10/11‑ის სუფთა დაყენება ან აღდგენა დაზიანების შემდეგ",
-            "დრაივერების, ოფისის და ყოველდღიური პროგრამების დაყენება",
-            "ძველი და ზედმეტი პროგრამების წაშლა, სისტემის გაწმენდა"
-          ]
-        },
-        {
-          title: "ვირუსები და უსაფრთხოება",
-          items: [
-            "ვირუსებისა და მავნე პროგრამების სრული სკანირება და მოცილება",
-            "ბრაუზერების გაწმენდა არასასურველი რეკლამებისა და საწყისი გვერდებისგან",
-            "ანტივირუსისა და საბაზისო უსაფრთხოების პარამეტრების დაყენება"
-          ]
-        },
-        {
-          title: "Wi‑Fi და ქსელი სახლში ან ოფისში",
-          items: [
-            "რუტერისა და Wi‑Fi ქსელის სწორად დაყენება და პაროლის შეცვლა",
-            "სუსტი სიგნალისა და ხშირი გათიშვების დიაგნოსტიკა და გამოსწორება",
-            "ბინასა და მცირე ოფისში მოწყობილობების დაკავშირება ერთ ქსელზე"
-          ]
-        }
-      ],
-      aboutTitle: "ვინ არის Tbilisi Computer Handyman",
-      aboutText: "დამოუკიდებელი IT ჰენდი მენი ვარ თბილისში. ვმუშაობ როგორც კერძო მომხმარებლებთან, ისე პატარა ბიზნესებთან, რომ კომპიუტერმა და ინტერნეტმა საქმე არ შეგინელოს. ყველაფერს აგიხსნი ჩვეულებრივ ენაზე, წინასწარ გეტყვი რა შეიძლება გაკეთდეს და დაახლოებით რა დაჯდება.",
-      processTitle: "როგორ მუშაობს მომსახურება",
-      processSteps: [
-        "მომწერე ან დამირეკე და მოკლედ მომიყევი, რა პრობლემა გაქვს",
-        "შევთანხმდებით მოსვლის დროს და ადგილზე გავაკეთებ დიაგნოსტიკას",
-        "გეტყვი ფასის დიაპაზონს და მხოლოდ შენს თანხმობაზე დავიწყებ შეკეთებას",
-        "უმეტეს შემთხვევაში პრობლემა იმავე დღეს fიქსირდება, მიღებულ შედეგზე მიიღებ მოკლე ინსტრუქციებსაც"
-      ],
-      faqTitle: "ხშირად დასმული კითხვები",
-      faq: [
-        {
-          q: "ტექნიკოსი მოდის სახლში თუ ოფისშიც?",
-          a: "დიახ, ვმუშაობ ადგილზე მისვლით მთელ თბილისში. თუ პრობლემა მხოლოდ პროგრამულია, ზოგ შემთხვევაში შეგვიძლია დისტანციურადაც მოვაგვაროთ."
-        },
-        {
-          q: "რამდენი ჯდება კომპიუტერის შეკეთება?",
-          a: "ფასი დამოკიდებულია პრობლემაზე, მაგრამ ყოველთვის წინასწარ გეუბნები დიაგნოზსა და სავარაუდო ღირებულებას, სანამ რამეს შევეხები – მოულოდნელი ხარჯები არ იქნება."
-        },
-        {
-          q: "რა მოწყობილობებზე მუშაობ?",
-          a: "ძირითადად ვმუშაობ Windows‑ის ლეპტოპებსა და დესქთოპებზე, ასევე სახლისა და მცირე ოფისის Wi‑Fi/ინტერნეტ ქსელზე."
-        }
-      ],
-      finalCtaTitle: "გინდა, რომ კომპიუტერმა დღესვე იმუშაოს ნორმალურად?",
-      finalCtaText: "თუ კომპიუტერი ნერვებს გიშლის, გაიჭედა Windows ან Wi‑Fi არ მუშაობს, ნუ გადადებ. მომწერე მოკლე აღწერა და გეტყვი, როგორ შეგვიძლია დღესვე მოვაგვაროთ პრობლემა ადგილზე.",
-      finalCtaBtn: "გამოიძახე ტექნიკოსი",
-      finalCtaSecondary: "მომწერე მესენჯერში",
-      footerLine: "Tbilisi Computer Handyman • კომპიუტერისა და ლეპტოპის ადგილზე შეკეთება თბილისში • ვირუსების მოცილება • Windows • Wi‑Fi"
-    },
-
-    ru: {
-      badge: "Выездной компьютерный мастер • Тбилиси",
-      heroTitle: "Компьютерный мастер на дому в Тбилиси",
-      heroSubtitle: "Ремонт ноутбуков и ПК у вас дома или в офисе. Медленный ноутбук, вирусы, проблемы с Wi‑Fi или Windows? Решаем всё за одно посещение, без очередей и лишних поездок.",
-      heroMainCta: "Вызвать мастера",
-      heroSecondaryCta: "Узнать стоимость услуг",
-      heroNote: "Выезд в день обращения. Диагностика занимает около 30 минут, большинство неисправностей устраняются сразу на месте.",
-      heroCardTitle: "Почему обращаются ко мне",
-      heroCardList: [
-        "Выездной мастер приезжает в удобное для вас время",
-        "Честная диагностика и прозрачные цены без скрытых платежей",
-        "Ремонт медленных ноутбуков и ПК, удаление вирусов, настройка интернета",
-        "Работа с Windows: установка, переустановка и полная настройка",
-        "Гарантия на выполненные работы"
-      ],
-      servicesTitle: "Какие проблемы я решаю",
-      servicesIntro: "От ремонта ноутбука до настройки Wi‑Fi — всё делается на месте. Вам не нужно везти компьютер в сервис и ждать несколько дней: мастер приезжает, диагностирует и чинит сразу.",
-      servicesPills: [
-        "Ремонт ноутбуков в Тбилиси",
-        "Ремонт компьютеров на дому",
-        "Установка и переустановка Windows",
-        "Удаление вирусов",
-        "Настройка Wi‑Fi и роутера",
-        "Ускорение работы ноутбука",
-        "Диагностика ПК"
-      ],
-      servicesBlocks: [
-        {
-          title: "Медленный ноутбук или зависающий компьютер",
-          items: [
-            "Чистка системы от мусора, лишних программ и автозапуска",
-            "Проверка жёсткого диска и оперативной памяти, при необходимости замена",
-            "Оптимизация Windows для более быстрой работы"
-          ]
-        },
-        {
-          title: "Удаление вирусов и защита",
-          items: [
-            "Полное сканирование системы и удаление вредоносных программ",
-            "Установка актуального антивируса и настройка защиты",
-            "Рекомендации по безопасному использованию интернета и почты"
-          ]
-        },
-        {
-          title: "Установка и переустановка Windows",
-          items: [
-            "Чистая установка Windows на ноутбук или ПК",
-            "Сохранение и перенос важных файлов перед переустановкой",
-            "Установка драйверов и необходимого программного обеспечения"
-          ]
-        },
-        {
-          title: "Настройка Wi‑Fi и домашней сети",
-          items: [
-            "Настройка роутера и Wi‑Fi, решение проблем с отключением",
-            "Оптимизация покрытия и скорости интернета в квартире или офисе",
-            "Подключение устройств к домашней сети и облачным сервисам"
-          ]
-        }
-      ],
-      aboutTitle: "Обо мне",
-      aboutText: "Более нескольких лет помогаю жителям Тбилиси решать проблемы с компьютерами и ноутбуками прямо у них дома. Я знаю, что вам важны скорость, честность и отсутствие лишней суеты, поэтому приезжаю в день звонка, быстро диагностирую проблему и предлагаю понятное решение с прозрачной ценой.",
-      processTitle: "Как всё происходит",
-      processSteps: [
-        "Вы звоните или пишете и коротко описываете проблему",
-        "Договариваемся о времени, мастер приезжает и проводит диагностику",
-        "Озвучиваю стоимость и приступаю к ремонту только с вашего согласия",
-        "После ремонта проверяем результат, даю рекомендации и гарантию"
-      ],
-      faqTitle: "Частые вопросы",
-      faq: [
-        {
-          q: "Вы выезжаете по всему Тбилиси?",
-          a: "Да, работаю по всему Тбилиси. В некоторых случаях программные проблемы можно решить и удалённо, без выезда."
-        },
-        {
-          q: "Сколько стоит ремонт компьютера?",
-          a: "Стоимость зависит от конкретной неисправности, но цену вы узнаёте заранее, после диагностики. Никаких скрытых платежей или неожиданных доплат."
-        },
-        {
-          q: "С какими устройствами вы работаете?",
-          a: "Работаю с ноутбуками и стационарными ПК на Windows, а также с домашними и небольшими офисными сетями и роутерами."
-        }
-      ],
-      finalCtaTitle: "Нужна помощь с компьютером сегодня?",
-      finalCtaText: "Если ноутбук тормозит, Windows не загружается или Wi‑Fi постоянно пропадает, не откладывайте. Напишите или позвоните, и мы договоримся о выезде мастера в удобное для вас время.",
-      finalCtaBtn: "Вызвать мастера сейчас",
-      finalCtaSecondary: "Написать сообщение",
-      footerLine: "Компьютерный мастер на дому в Тбилиси • ремонт ноутбуков и ПК • удаление вирусов • Windows • настройка Wi‑Fi"
-    }
-  };
-
-  const els = {
-    badge: document.getElementById("badge"),
-    heroTitle: document.getElementById("heroTitle"),
-    heroSubtitle: document.getElementById("heroSubtitle"),
-    heroMainCta: document.getElementById("heroMainCta"),
-    heroSecondaryCta: document.getElementById("heroSecondaryCta"),
-    heroNote: document.getElementById("heroNote"),
-    heroCardTitle: document.getElementById("heroCardTitle"),
-    heroCardList: document.getElementById("heroCardList"),
-    servicesTitle: document.getElementById("servicesTitle"),
-    servicesIntro: document.getElementById("servicesIntro"),
-    servicesPills: document.getElementById("servicesPills"),
-    servicesGrid: document.getElementById("servicesGrid"),
-    aboutTitle: document.getElementById("aboutTitle"),
-    aboutText: document.getElementById("aboutText"),
-    processTitle: document.getElementById("processTitle"),
-    processList: document.getElementById("processList"),
-    faqTitle: document.getElementById("faqTitle"),
-    faqList: document.getElementById("faqList"),
-    finalCtaTitle: document.getElementById("finalCtaTitle"),
-    finalCtaText: document.getElementById("finalCtaText"),
-    finalCtaBtn: document.getElementById("finalCtaBtn"),
-    finalCtaSecondary: document.getElementById("finalCtaSecondary"),
-    footerLine: document.getElementById("footerLine")
-  };
-
-  function renderLanguage(lang) {
-    const t = translations[lang];
-    if (!t) return;
-
-    document.documentElement.lang = lang;
-
-    els.badge.textContent = t.badge;
-    els.heroTitle.textContent = t.heroTitle;
-    els.heroSubtitle.textContent = t.heroSubtitle;
-    els.heroMainCta.textContent = t.heroMainCta;
-    els.heroSecondaryCta.textContent = t.heroSecondaryCta;
-    els.heroNote.textContent = t.heroNote;
-
-    // default – Georgian / Russian: ქართული ტექსტით
-    let waLink = whatsappHref;
-
-    // თუ ინგლისური ენაა, ინგლისური ტექსტით
-    if (lang === "en") {
-      waLink = whatsappHrefEn;
-    }
-
-els.heroMainCta.href = waLink;
-els.heroSecondaryCta.href = waLink;
-els.finalCtaBtn.href = waLink;
-els.finalCtaSecondary.href = waLink;
-
-    els.heroCardTitle.textContent = t.heroCardTitle;
-    els.heroCardList.innerHTML = "";
-    t.heroCardList.forEach(item => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      els.heroCardList.appendChild(li);
-    });
-
-    els.servicesTitle.textContent = t.servicesTitle;
-    els.servicesIntro.textContent = t.servicesIntro;
-
-    els.servicesPills.innerHTML = "";
-    t.servicesPills.forEach(p => {
-      const span = document.createElement("span");
-      span.className = "pill";
-      span.textContent = p;
-      els.servicesPills.appendChild(span);
-    });
-
-    els.servicesGrid.innerHTML = "";
-    t.servicesBlocks.forEach(block => {
-      const div = document.createElement("div");
-      div.className = "card";
-      const h3 = document.createElement("h3");
-      h3.textContent = block.title;
-      div.appendChild(h3);
-      const ul = document.createElement("ul");
-      block.items.forEach(it => {
-        const li = document.createElement("li");
-        li.textContent = it;
-        ul.appendChild(li);
-      });
-      div.appendChild(ul);
-      els.servicesGrid.appendChild(div);
-    });
-
-    els.aboutTitle.textContent = t.aboutTitle;
-    els.aboutText.textContent = t.aboutText;
-
-    els.processTitle.textContent = t.processTitle;
-    els.processList.innerHTML = "";
-    t.processSteps.forEach(step => {
-      const li = document.createElement("li");
-      li.textContent = step;
-      els.processList.appendChild(li);
-    });
-
-    els.faqTitle.textContent = t.faqTitle;
-    els.faqList.innerHTML = "";
-    t.faq.forEach(item => {
-      const wrap = document.createElement("div");
-      wrap.className = "faq-item";
-      const q = document.createElement("div");
-      q.className = "faq-q";
-      q.textContent = item.q;
-      const a = document.createElement("div");
-      a.className = "faq-a";
-      a.textContent = item.a;
-      wrap.appendChild(q);
-      wrap.appendChild(a);
-      els.faqList.appendChild(wrap);
-    });
-
-    els.finalCtaTitle.textContent = t.finalCtaTitle;
-    els.finalCtaText.textContent = t.finalCtaText;
-    els.finalCtaBtn.textContent = t.finalCtaBtn;
-    els.finalCtaSecondary.textContent = t.finalCtaSecondary;
-    els.footerLine.textContent = t.footerLine;
-
-    document
-      .querySelectorAll(".lang-switch button")
-      .forEach(btn => {
-        btn.classList.toggle("active", btn.dataset.lang === lang);
-      });
-  }
-
-  document
-    .querySelectorAll(".lang-switch button")
-    .forEach(btn => {
-      btn.addEventListener("click", () => {
-        renderLanguage(btn.dataset.lang);
-      });
-    });
-
-  renderLanguage("ka");
-</script>
-</body>
-</html>
+      <ol id="processList" style="padding-left:20px; font-size:14px; color:#d1d5db;"></ol>
