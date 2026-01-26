@@ -5,110 +5,349 @@
     <title>კომპიუტერული მომსახურეობა</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
             margin: 0;
-            padding: 0;
-            text-align: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: #111827;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background:
+                linear-gradient(135deg, rgba(15,23,42,0.9), rgba(37,99,235,0.85)),
+                url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80")
+                center/cover no-repeat fixed;
         }
-        header {
-            background: #222;
-            color: #fff;
-            padding: 15px;
+
+        .card {
+            max-width: 420px;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.92);
+            border-radius: 18px;
+            padding: 26px 22px 24px;
+            box-shadow:
+                0 22px 45px rgba(0, 0, 0, 0.55),
+                0 0 0 1px rgba(148, 163, 184, 0.15);
+            color: #e5e7eb;
+            backdrop-filter: blur(14px);
         }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            background: radial-gradient(circle at 30% 20%, #e5e7eb, #60a5fa);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f172a;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.6);
+        }
+
+        .logo-text {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
         .lang-switcher {
-            margin-top: 10px;
+            display: flex;
+            gap: 6px;
+            background: rgba(15, 23, 42, 0.8);
+            padding: 4px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.5);
         }
+
         .lang-switcher button {
-            margin: 0 5px;
-            padding: 5px 10px;
+            border: none;
+            background: transparent;
+            color: #9ca3af;
+            font-size: 11px;
+            padding: 5px 9px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.18s ease;
+        }
+
+        .lang-switcher button.active {
+            background: #facc15;
+            color: #111827;
+            font-weight: 600;
+            box-shadow: 0 6px 16px rgba(250, 204, 21, 0.4);
+        }
+
+        .card-body {
+            margin-top: 6px;
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #f9fafb;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            color: #9ca3af;
+            margin-bottom: 16px;
+        }
+
+        .hero-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 14px;
+            margin-bottom: 18px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+        }
+
+        .hero-image img {
+            width: 100%;
+            display: block;
+            filter: saturate(1.1);
+            transform: scale(1.03);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(15, 23, 42, 0.75),
+                rgba(37, 99, 235, 0.35)
+            );
+            mix-blend-mode: multiply;
+        }
+
+        .hero-badge {
+            position: absolute;
+            left: 14px;
+            bottom: 14px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.85);
+            color: #e5e7eb;
+            font-size: 11px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-badge-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: #22c55e;
+            box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.4);
+        }
+
+        .services-list {
+            font-size: 13px;
+            color: #d1d5db;
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        .services-list span {
+            color: #93c5fd;
+        }
+
+        .contact-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 12px;
+            color: #9ca3af;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: #22c55e;
+            margin-right: 6px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            text-align: center;
+            padding: 11px 12px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
             border: none;
             cursor: pointer;
-            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.18s ease;
+            white-space: nowrap;
         }
-        .lang-switcher button.active {
-            background: #ffcc00;
-        }
-        main {
-            padding: 40px 15px;
-        }
-        .title {
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-        .text {
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-        .buttons {
-            margin-top: 20px;
-        }
-        .btn {
-            display: inline-block;
-            margin: 10px;
-            padding: 12px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-        }
+
         .btn-whatsapp {
-            background: #25D366;
+            background: #22c55e;
+            color: #022c22;
+            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.35);
         }
+
+        .btn-whatsapp:hover {
+            filter: brightness(1.05);
+            transform: translateY(-1px);
+            box-shadow: 0 14px 30px rgba(34, 197, 94, 0.45);
+        }
+
         .btn-call {
-            background: #007bff;
+            background: #1d4ed8;
+            color: #e5e7eb;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+        }
+
+        .btn-call:hover {
+            filter: brightness(1.07);
+            transform: translateY(-1px);
+            box-shadow: 0 14px 30px rgba(37, 99, 235, 0.45);
+        }
+
+        .btn-icon {
+            font-size: 16px;
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 20px 16px 18px;
+            }
+            .title {
+                font-size: 20px;
+            }
+            .subtitle {
+                font-size: 12px;
+            }
+            .services-list {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
 <body>
-<header>
-    <div id="logo-text">კომპიუტერული მომსახურეობა</div>
-    <div class="lang-switcher">
-        <button data-lang="ka" class="active">KA</button>
-        <button data-lang="en">EN</button>
-        <button data-lang="ru">RU</button>
+<div class="card">
+    <div class="card-header">
+        <div class="logo-wrap">
+            <div class="logo-icon">IT</div>
+            <div class="logo-text" id="logo-text">კომპიუტერული მომსახურეობა</div>
+        </div>
+        <div class="lang-switcher">
+            <button data-lang="ka" class="active">KA</button>
+            <button data-lang="en">EN</button>
+            <button data-lang="ru">RU</button>
+        </div>
     </div>
-</header>
 
-<main>
-    <div class="title" data-key="title"></div>
-    <div class="text" data-key="description"></div>
+    <div class="card-body">
+        <div class="title" data-key="title"></div>
+        <div class="subtitle" data-key="subtitle"></div>
 
-    <div class="buttons">
-        <!-- ჩაანაცვლე YOURNUMBER შენი ნომერით, მაგალითად: 995599123456 -->
-        <a class="btn btn-whatsapp" id="whatsapp-btn" target="_blank">
-            WhatsApp
-        </a>
+        <!-- ფოტო (შეგიძლია შეცვალო შენი სურათით ან Unsplash ლინკით) -->
+        <div class="hero-image">
+            <img
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"
+                alt="Computer service workspace"
+            />
+            <div class="hero-overlay"></div>
+            <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                <span data-key="badge"></span>
+            </div>
+        </div>
 
-        <!-- ჩაანაცვლე YOURNUMBER შენი ნომერით, მაგალითად: 995599123456 -->
-        <a class="btn btn-call" id="call-btn">
-            <span data-key="call"></span>
-        </a>
+        <div class="services-list" data-key="services"></div>
+
+        <div class="contact-row">
+            <div>
+                <span class="status-dot"></span>
+                <span data-key="status"></span>
+            </div>
+            <div data-key="hours"></div>
+        </div>
+
+        <div class="buttons">
+            <a class="btn btn-whatsapp" id="whatsapp-btn" target="_blank">
+                <span class="btn-icon">💬</span>
+                <span data-key="whatsapp"></span>
+            </a>
+            <a class="btn btn-call" id="call-btn">
+                <span class="btn-icon">📞</span>
+                <span data-key="call"></span>
+            </a>
+        </div>
     </div>
-</main>
+</div>
 
 <script>
-    // ჩაანაცვლე აქ შენი ნომერი საერთაშორისო ფორმატით, მხოლოდ ციფრები
+    // ჩაანაცვლე შენი ნომერი (ქვეყნის კოდი + ნომერი, მხოლოდ ციფრები)
     const PHONE_NUMBER = "995599123456"; // მაგ: 9955XXXXXXXX
 
     const translations = {
         ka: {
             logo: "კომპიუტერული მომსახურეობა",
             title: "კომპიუტერული მომსახურეობა ადგილზე და დისტანციურად",
-            description: "Windows-ის ჩაწერა, დიაგნოსტიკა, ვირუსების გაწმენდა, პროგრამების დაყენება და სხვა IT მომსახურეობა.",
+            subtitle: "Tbilisi • Windows, დიაგნოსტიკა, ვირუსები, პროგრამები",
+            badge: "სწრაფი რეაგირება • გამოცდილი სპეციალისტი",
+            services: "Windows-ის ჩაწერა და გადაყენება, <span>სრული დიაგნოსტიკა</span>, ვირუსების გაწმენდა, პროგრამების დაყენება, ტექნიკური კონსულტაცია.",
+            status: "ახლა შეკვეთის მიღება შესაძლებელია",
+            hours: "09:00 – 21:00 ყოველდღე",
+            whatsapp: "ვოთსაპზე მიწერა",
             call: "დარეკვა"
         },
         en: {
             logo: "Computer Service",
-            title: "Professional computer services onsite and remote",
-            description: "Windows installation, diagnostics, virus removal, software setup and other IT services.",
+            title: "Onsite & remote computer services",
+            subtitle: "Tbilisi • Windows, diagnostics, cleanup, setup",
+            badge: "Fast response • Experienced technician",
+            services: "Windows installation & reinstall, <span>full diagnostics</span>, virus removal, software setup, technical consulting.",
+            status: "Available for new requests",
+            hours: "09:00 – 21:00 daily",
+            whatsapp: "Message on WhatsApp",
             call: "Call"
         },
         ru: {
             logo: "Компьютерные услуги",
-            title: "Профессиональные компьютерные услуги на месте и удалённо",
-            description: "Установка Windows, диагностика, удаление вирусов, установка программ и другие IT услуги.",
+            title: "Компьютерная помощь на месте и удалённо",
+            subtitle: "Тбилиси • Windows, диагностика, чистка, настройка",
+            badge: "Быстрый выезд • Опытный мастер",
+            services: "Установка и переустановка Windows, <span>полная диагностика</span>, удаление вирусов, установка программ, техническая консультация.",
+            status: "Готов принять заказ",
+            hours: "09:00 – 21:00 каждый день",
+            whatsapp: "Написать в WhatsApp",
             call: "Позвонить"
         }
     };
@@ -118,7 +357,12 @@
 
         document.getElementById("logo-text").textContent = t.logo;
         document.querySelector('[data-key="title"]').textContent = t.title;
-        document.querySelector('[data-key="description"]').textContent = t.description;
+        document.querySelector('[data-key="subtitle"]').textContent = t.subtitle;
+        document.querySelector('[data-key="badge"]').textContent = t.badge;
+        document.querySelector('[data-key="services"]').innerHTML = t.services;
+        document.querySelector('[data-key="status"]').textContent = t.status;
+        document.querySelector('[data-key="hours"]').textContent = t.hours;
+        document.querySelector('[data-key="whatsapp"]').textContent = t.whatsapp;
         document.querySelector('[data-key="call"]').textContent = t.call;
 
         document.querySelectorAll(".lang-switcher button").forEach(btn => {
