@@ -1,400 +1,148 @@
 <!DOCTYPE html>
 <html lang="ka">
 <head>
-  <meta charset="UTF-8">
-  <title>Tbilisi Computer Handyman - კომპიუტერის შეკეთება თბილისში</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Computer repair & laptop repair in Tbilisi. On-site technician, same-day service. Fix slow PCs, remove viruses, Windows setup, Wi-Fi repair.">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #0a0f1e;
-      color: #e5e7eb;
-      line-height: 1.7;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 24px;
-      border-bottom: 1px solid #1f2937;
-      position: sticky;
-      top: 0;
-      background: rgba(10, 15, 30, 0.95);
-      backdrop-filter: blur(12px);
-      z-index: 100;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-    .logo {
-      font-weight: 700;
-      font-size: 19px;
-      color: #fbbf24;
-      letter-spacing: -0.3px;
-    }
-    .lang-switch button {
-      background: transparent;
-      border: 1px solid transparent;
-      color: #9ca3af;
-      margin-left: 10px;
-      cursor: pointer;
-      font-size: 14px;
-      padding: 4px 10px;
-      border-radius: 6px;
-      transition: all 0.2s;
-    }
-    .lang-switch button:hover {
-      background: #1f2937;
-      color: #e5e7eb;
-    }
-    .lang-switch button.active {
-      background: #fbbf24;
-      color: #0a0f1e;
-      font-weight: 600;
-      border-color: #fbbf24;
-    }
-    main {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 32px 24px 60px;
-    }
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
-      gap: 32px;
-      align-items: center;
-      padding: 40px 0 60px;
-      background: radial-gradient(ellipse at top left, rgba(59, 130, 246, 0.08), transparent 50%);
-      border-radius: 20px;
-      margin-bottom: 20px;
-    }
-    @media (max-width: 768px) {
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 24px 0 40px;
-      }
-    }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #1f2937, #0f172a);
-      border: 1px solid #374151;
-      font-size: 13px;
-      color: #fbbf24;
-      margin-bottom: 16px;
-      font-weight: 500;
-    }
-    .badge::before {
-      content: "⚡";
-      font-size: 16px;
-    }
-    h1 {
-      font-size: clamp(30px, 5vw, 42px);
-      margin: 0 0 16px;
-      color: #f9fafb;
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.5px;
-    }
-    .subtitle {
-      font-size: 16px;
-      color: #d1d5db;
-      margin-bottom: 24px;
-      line-height: 1.7;
-    }
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, #fbbf24, #f59e0b);
-      color: #0a0f1e;
-      border: none;
-      padding: 13px 24px;
-      border-radius: 999px;
-      font-weight: 700;
-      cursor: pointer;
-      font-size: 15px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 14px rgba(251, 191, 36, 0.4);
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(251, 191, 36, 0.6);
-    }
-    .btn-primary::before {
-      content: "📞";
-      font-size: 18px;
-    }
-    .btn-secondary {
-      background: rgba(255,255,255,0.05);
-      color: #e5e7eb;
-      border: 1px solid #4b5563;
-      padding: 12px 20px;
-      border-radius: 999px;
-      font-size: 14px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s;
-    }
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: #6b7280;
-    }
-    .btn-secondary::before {
-      content: "💬";
-      font-size: 16px;
-    }
-    .hero-note {
-      font-size: 13px;
-      color: #9ca3af;
-      line-height: 1.6;
-    }
-    .hero-card {
-      border-radius: 16px;
-      border: 1px solid #1f2937;
-      background: linear-gradient(135deg, #1a2332, #0f1724);
-      padding: 24px;
-      font-size: 14px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-    }
-    .hero-card h2 {
-      font-size: 17px;
-      margin: 0 0 14px;
-      color: #f9fafb;
-      font-weight: 700;
-    }
-    .hero-card ul {
-      list-style: none;
-      padding: 0;
-    }
-    .hero-card li {
-      padding: 8px 0 8px 28px;
-      position: relative;
-      color: #d1d5db;
-      line-height: 1.5;
-    }
-    .hero-card li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: #10b981;
-      font-weight: bold;
-      font-size: 16px;
-    }
-    
-    /* Trust badges */
-    .trust-badges {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 12px;
-      margin: 40px 0 50px;
-    }
-    .trust-badge {
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      padding: 14px;
-      border-radius: 12px;
-      text-align: center;
-      font-size: 13px;
-      color: #d1d5db;
-    }
-    .trust-badge-icon {
-      font-size: 24px;
-      margin-bottom: 6px;
-    }
-    .trust-badge-text {
-      font-weight: 600;
-      color: #10b981;
-    }
-    
-    section {
-      margin-top: 60px;
-    }
-    section h2 {
-      font-size: 28px;
-      margin-bottom: 12px;
-      color: #f9fafb;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-    }
-    section > p {
-      color: #d1d5db;
-      margin-bottom: 20px;
-      font-size: 15px;
-    }
-    .pill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 24px;
-    }
-    .pill {
-      font-size: 13px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      border: 1px solid #374151;
-      background: rgba(255,255,255,0.03);
-      color: #9ca3af;
-      transition: all 0.2s;
-    }
-    .pill:hover {
-      background: rgba(59, 130, 246, 0.1);
-      border-color: #3b82f6;
-      color: #93c5fd;
-    }
-    .grid-two {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
-    }
-    .card {
-      border-radius: 14px;
-      border: 1px solid #1f2937;
-      padding: 20px;
-      background: linear-gradient(135deg, #0f1724, #0a0f1e);
-      font-size: 14px;
-      transition: all 0.3s;
-    }
-    .card:hover {
-      border-color: #374151;
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-    }
-    .card h3 {
-      font-size: 16px;
-      margin: 0 0 12px;
-      color: #e5e7eb;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .card-icon {
-      font-size: 24px;
-    }
-    ul {
-      padding-left: 20px;
-      margin: 8px 0;
-      font-size: 14px;
-      color: #d1d5db;
-    }
-    li {
-      margin-bottom: 6px;
-      line-height: 1.5;
-    }
-    .faq-item {
-      margin-bottom: 18px;
-      padding: 16px;
-      background: rgba(255,255,255,0.02);
-      border-radius: 10px;
-      border: 1px solid #1f2937;
-    }
-    .faq-q {
-      font-weight: 700;
-      font-size: 15px;
-      margin-bottom: 6px;
-      color: #f9fafb;
-    }
-    .faq-a {
-      font-size: 14px;
-      color: #d1d5db;
-      line-height: 1.6;
-    }
-    footer {
-      margin-top: 60px;
-      padding-top: 24px;
-      border-top: 1px solid #1f2937;
-      font-size: 13px;
-      color: #6b7280;
-      text-align: center;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <title>კომპიუტერული მომსახურეობა</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background: #222;
+            color: #fff;
+            padding: 15px;
+        }
+        .lang-switcher {
+            margin-top: 10px;
+        }
+        .lang-switcher button {
+            margin: 0 5px;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .lang-switcher button.active {
+            background: #ffcc00;
+        }
+        main {
+            padding: 40px 15px;
+        }
+        .title {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .text {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+        .btn-whatsapp {
+            background: #25D366;
+        }
+        .btn-call {
+            background: #007bff;
+        }
+    </style>
 </head>
 <body>
 <header>
-  <div class="logo">Tbilisi Computer Handyman</div>
-  <div class="lang-switch">
-    <button data-lang="ka" class="active">KA</button>
-    <button data-lang="ru">RU</button>
-    <button data-lang="en">EN</button>
-  </div>
+    <div id="logo-text">კომპიუტერული მომსახურეობა</div>
+    <div class="lang-switcher">
+        <button data-lang="ka" class="active">KA</button>
+        <button data-lang="en">EN</button>
+        <button data-lang="ru">RU</button>
+    </div>
 </header>
 
 <main>
-  <!-- HERO -->
-  <section class="hero">
-    <div>
-      <div class="badge" id="badge"></div>
-      <h1 id="heroTitle"></h1>
-      <p class="subtitle" id="heroSubtitle"></p>
-      <div class="cta-row">
-        <a id="heroMainCta" class="btn-primary"></a>
-        <a id="heroSecondaryCta" class="btn-secondary"></a>
-      </div>
-      <p class="hero-note" id="heroNote"></p>
-    </div>
-    <div class="hero-card">
-      <h2 id="heroCardTitle"></h2>
-      <ul id="heroCardList"></ul>
-    </div>
-  </section>
+    <div class="title" data-key="title"></div>
+    <div class="text" data-key="description"></div>
 
-  <!-- TRUST BADGES -->
-  <div class="trust-badges">
-    <div class="trust-badge">
-      <div class="trust-badge-icon">⚡</div>
-      <div class="trust-badge-text" id="trustBadge1"></div>
-    </div>
-    <div class="trust-badge">
-      <div class="trust-badge-icon">🛡️</div>
-      <div class="trust-badge-text" id="trustBadge2"></div>
-    </div>
-    <div class="trust-badge">
-      <div class="trust-badge-icon">⭐</div>
-      <div class="trust-badge-text" id="trustBadge3"></div>
-    </div>
-    <div class="trust-badge">
-      <div class="trust-badge-icon">🏠</div>
-      <div class="trust-badge-text" id="trustBadge4"></div>
-    </div>
-  </div>
+    <div class="buttons">
+        <!-- ჩაანაცვლე YOURNUMBER შენი ნომერით, მაგალითად: 995599123456 -->
+        <a class="btn btn-whatsapp" id="whatsapp-btn" target="_blank">
+            WhatsApp
+        </a>
 
-  <!-- SERVICES -->
-  <section>
-    <h2 id="servicesTitle"></h2>
-    <p id="servicesIntro"></p>
-    <div class="pill-list" id="servicesPills"></div>
-    <div class="grid-two" id="servicesGrid"></div>
-  </section>
-
-  <!-- ABOUT + PROCESS -->
-  <section class="grid-two">
-    <div>
-      <h2 id="aboutTitle"></h2>
-      <p id="aboutText"></p>
+        <!-- ჩაანაცვლე YOURNUMBER შენი ნომერით, მაგალითად: 995599123456 -->
+        <a class="btn btn-call" id="call-btn">
+            <span data-key="call"></span>
+        </a>
     </div>
-    <div>
-      <h2 id="processTitle"></h2>
-      <ol id="processList" style="padding-left:20px; font-size:14px; color:#d1d5db;"></ol>
-    </div>
-  </section>
+</main>
 
-  <!-- FAQ -->
+<script>
+    // ჩაანაცვლე აქ შენი ნომერი საერთაშორისო ფორმატით, მხოლოდ ციფრები
+    const PHONE_NUMBER = "995599123456"; // მაგ: 9955XXXXXXXX
+
+    const translations = {
+        ka: {
+            logo: "კომპიუტერული მომსახურეობა",
+            title: "კომპიუტერული მომსახურეობა ადგილზე და დისტანციურად",
+            description: "Windows-ის ჩაწერა, დიაგნოსტიკა, ვირუსების გაწმენდა, პროგრამების დაყენება და სხვა IT მომსახურეობა.",
+            call: "დარეკვა"
+        },
+        en: {
+            logo: "Computer Service",
+            title: "Professional computer services onsite and remote",
+            description: "Windows installation, diagnostics, virus removal, software setup and other IT services.",
+            call: "Call"
+        },
+        ru: {
+            logo: "Компьютерные услуги",
+            title: "Профессиональные компьютерные услуги на месте и удалённо",
+            description: "Установка Windows, диагностика, удаление вирусов, установка программ и другие IT услуги.",
+            call: "Позвонить"
+        }
+    };
+
+    function setLanguage(lang) {
+        const t = translations[lang] || translations["ka"];
+
+        document.getElementById("logo-text").textContent = t.logo;
+        document.querySelector('[data-key="title"]').textContent = t.title;
+        document.querySelector('[data-key="description"]').textContent = t.description;
+        document.querySelector('[data-key="call"]').textContent = t.call;
+
+        document.querySelectorAll(".lang-switcher button").forEach(btn => {
+            btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+        });
+    }
+
+    function setContactLinks() {
+        const waLink = "https://wa.me/" + PHONE_NUMBER;
+        const callLink = "tel:+" + PHONE_NUMBER;
+        document.getElementById("whatsapp-btn").setAttribute("href", waLink);
+        document.getElementById("call-btn").setAttribute("href", callLink);
+    }
+
+    document.querySelectorAll(".lang-switcher button").forEach(btn => {
+        btn.addEventListener("click", function () {
+            const lang = this.getAttribute("data-lang");
+            setLanguage(lang);
+        });
+    });
+
+    // საწყისი ჩატვირთვა
+    setLanguage("ka");
+    setContactLinks();
+</script>
+</body>
+</html>
