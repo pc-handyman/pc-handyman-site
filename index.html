@@ -25,11 +25,12 @@
         }
 
         .card {
+            position: relative;
             max-width: 420px;
             width: 100%;
             background: rgba(15, 23, 42, 0.92);
             border-radius: 18px;
-            padding: 26px 22px 24px;
+            padding: 26px 22px 80px;
             box-shadow:
                 0 22px 45px rgba(0, 0, 0, 0.55),
                 0 0 0 1px rgba(148, 163, 184, 0.15);
@@ -124,8 +125,8 @@
         .hero-image img {
             width: 100%;
             display: block;
-            filter: saturate(1.1);
-            transform: scale(1.03);
+            filter: saturate(1.05);
+            transform: scale(1.01);
         }
 
         .hero-overlay {
@@ -162,15 +163,21 @@
             box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.4);
         }
 
-        .services-list {
-            font-size: 13px;
-            color: #d1d5db;
-            margin-bottom: 18px;
-            line-height: 1.6;
+        .services-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
         }
 
-        .services-list span {
-            color: #93c5fd;
+        .services-list {
+            margin: 0 0 18px 0;
+            padding-left: 18px;
+            font-size: 13px;
+            color: #d1d5db;
+        }
+
+        .services-list li {
+            margin-bottom: 4px;
         }
 
         .contact-row {
@@ -189,6 +196,17 @@
             border-radius: 999px;
             background: #22c55e;
             margin-right: 6px;
+        }
+
+        .cta-wrapper {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 10px 18px 14px;
+            background: linear-gradient(to top, rgba(15,23,42,0.98), rgba(15,23,42,0.85));
+            border-radius: 0 0 18px 18px;
+            box-shadow: 0 -8px 18px rgba(15, 23, 42, 0.8);
         }
 
         .buttons {
@@ -244,7 +262,7 @@
 
         @media (max-width: 480px) {
             .card {
-                padding: 20px 16px 18px;
+                padding: 20px 16px 76px;
             }
             .title {
                 font-size: 20px;
@@ -276,11 +294,10 @@
         <div class="title" data-key="title"></div>
         <div class="subtitle" data-key="subtitle"></div>
 
-        <!-- ფოტო (შეგიძლია შეცვალო შენი სურათით ან Unsplash ლინკით) -->
         <div class="hero-image">
             <img
-                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"
-                alt="Computer service workspace"
+                src="my-photo.jpg"
+                alt="Computer master"
             />
             <div class="hero-overlay"></div>
             <div class="hero-badge">
@@ -289,7 +306,8 @@
             </div>
         </div>
 
-        <div class="services-list" data-key="services"></div>
+        <div class="services-title" data-key="servicesTitle"></div>
+        <ul class="services-list" id="services-list"></ul>
 
         <div class="contact-row">
             <div>
@@ -298,7 +316,9 @@
             </div>
             <div data-key="hours"></div>
         </div>
+    </div>
 
+    <div class="cta-wrapper">
         <div class="buttons">
             <a class="btn btn-whatsapp" id="whatsapp-btn" target="_blank">
                 <span class="btn-icon">💬</span>
@@ -313,8 +333,8 @@
 </div>
 
 <script>
-    // ჩაანაცვლე შენი ნომერი (ქვეყნის კოდი + ნომერი, მხოლოდ ციფრები)
-    const PHONE_NUMBER = "995555593673"; // მაგ: 9955XXXXXXXX
+    // შენი ნომერი უკვე ჩასმულია
+    const PHONE_NUMBER = "995555593673";
 
     const translations = {
         ka: {
@@ -322,7 +342,15 @@
             title: "კომპიუტერული მომსახურეობა ადგილზე და დისტანციურად",
             subtitle: "Tbilisi • Windows, დიაგნოსტიკა, ვირუსები, პროგრამები",
             badge: "სწრაფი რეაგირება • გამოცდილი სპეციალისტი",
-            services: "Windows-ის ჩაწერა და გადაყენება, <span>სრული დიაგნოსტიკა</span>, ვირუსების გაწმენდა, პროგრამების დაყენება, ტექნიკური კონსულტაცია.",
+            servicesTitle: "რისი გაკეთება შემიძლია:",
+            servicesItems: [
+                "Windows-ის ჩაწერა და გადაყენება",
+                "სრული დიაგნოსტიკა",
+                "ვირუსებისა და malware-ის გაწმენდა",
+                "პროგრამების დაყენება და კონფიგურაცია",
+                "ტექნიკური კონსულტაცია და მხარდაჭერა",
+                "შეძენა/გაყიდვაში დახმარება ბ/უ تکنიკაზე"
+            ],
             status: "ახლა შეკვეთის მიღება შესაძლებელია",
             hours: "09:00 – 21:00 ყოველდღე",
             whatsapp: "ვოთსაპზე მიწერა",
@@ -333,7 +361,15 @@
             title: "Onsite & remote computer services",
             subtitle: "Tbilisi • Windows, diagnostics, cleanup, setup",
             badge: "Fast response • Experienced technician",
-            services: "Windows installation & reinstall, <span>full diagnostics</span>, virus removal, software setup, technical consulting.",
+            servicesTitle: "What I can help with:",
+            servicesItems: [
+                "Windows installation & reinstall",
+                "Full hardware & software diagnostics",
+                "Virus / malware removal & cleanup",
+                "Software setup and configuration",
+                "Technical consulting & ongoing support",
+                "Help with buying / selling used hardware"
+            ],
             status: "Available for new requests",
             hours: "09:00 – 21:00 daily",
             whatsapp: "Message on WhatsApp",
@@ -344,13 +380,31 @@
             title: "Компьютерная помощь на месте и удалённо",
             subtitle: "Тбилиси • Windows, диагностика, чистка, настройка",
             badge: "Быстрый выезд • Опытный мастер",
-            services: "Установка и переустановка Windows, <span>полная диагностика</span>, удаление вирусов, установка программ, техническая консультация.",
+            servicesTitle: "Чем могу помочь:",
+            servicesItems: [
+                "Установка и переустановка Windows",
+                "Полная диагностика железа и софта",
+                "Удаление вирусов и вредоносного ПО",
+                "Установка и настройка программ",
+                "Технические консультации и сопровождение",
+                "Помощь с покупкой/продажей б/у техники"
+            ],
             status: "Готов принять заказ",
             hours: "09:00 – 21:00 каждый день",
             whatsapp: "Написать в WhatsApp",
             call: "Позвонить"
         }
     };
+
+    function renderServicesList(items) {
+        const list = document.getElementById("services-list");
+        list.innerHTML = "";
+        items.forEach(text => {
+            const li = document.createElement("li");
+            li.textContent = text;
+            list.appendChild(li);
+        });
+    }
 
     function setLanguage(lang) {
         const t = translations[lang] || translations["ka"];
@@ -359,11 +413,13 @@
         document.querySelector('[data-key="title"]').textContent = t.title;
         document.querySelector('[data-key="subtitle"]').textContent = t.subtitle;
         document.querySelector('[data-key="badge"]').textContent = t.badge;
-        document.querySelector('[data-key="services"]').innerHTML = t.services;
+        document.querySelector('[data-key="servicesTitle"]').textContent = t.servicesTitle;
         document.querySelector('[data-key="status"]').textContent = t.status;
         document.querySelector('[data-key="hours"]').textContent = t.hours;
         document.querySelector('[data-key="whatsapp"]').textContent = t.whatsapp;
         document.querySelector('[data-key="call"]').textContent = t.call;
+
+        renderServicesList(t.servicesItems);
 
         document.querySelectorAll(".lang-switcher button").forEach(btn => {
             btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
@@ -384,7 +440,6 @@
         });
     });
 
-    // საწყისი ჩატვირთვა
     setLanguage("ka");
     setContactLinks();
 </script>
